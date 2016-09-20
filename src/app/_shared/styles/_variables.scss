@@ -1,0 +1,15 @@
+$icon-font-path: 'assets/fonts/bootstrap/';
+$brand-primary: #1cb6b1;
+$gray-lighter: #f4f4f4;
+$btn-border-radius-base: 20px;
+
+$breadcrumb-height: 35px;
+$header-height: 68px;
+$footer-height: 76px;
+
+// 大字体优先使用微软雅黑
+$font-family-sans-serif: "微软雅黑", "Microsoft Yahei", "Hiragino Sans GB", Helvetica, Arial, sans-serif;
+// 英文和数字的字体优先使用细体字
+$font-family-serif: "Open Sans", "微软雅黑", "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", Helvetica, serif;
+
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";

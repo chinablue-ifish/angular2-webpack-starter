@@ -1,0 +1,56 @@
+// 水产来源
+export interface AquaticSource {
+  id?:Number ;
+  // 内部编码
+  innerCode?:String ;
+  // 关联base info表的id
+  aquaticBaseInfoId?:String ;
+  // 是否国产
+  isHomemade?:String ;
+  // 关联region表的id
+  aquaticRegionId?:String ;
+  // 区域的名称
+  aquaticRegionName?:String ;
+  // 区域编码
+  aquaticRegionCode?:String ;
+  // 生产模式
+  producePattern?:String ;
+  // 生产模式中文名
+  producePatternAlias?:String ;
+  // 养殖模式
+  feedPattern?:String ;
+  // 捕捞模式
+  catchPattern?:Number ;
+  // 外部编码
+  outerCode?:String ;
+  // 俗名
+  commonName?:String ;
+  // 学名
+  scientificName?:String ;
+  // 英文名
+  englishName?:String ;
+  // 中文名
+  chineseName?:String ;
+  // 关联category表的id
+  aquaticCategoryId?:Number ;
+  // 关联authentication表的id
+  aquaticAuthenticationInfoId?:Number ;
+  // 评级分数
+  score?:Number ;
+  // 评级级别
+  level?:String ;
+  // 图片URL
+  imgUrl?:String ;
+  // 图片类型
+  imgType?:String ;
+  // 图片类型id
+  imgTypeId?:String ;
+  // 类型英文名
+  categoryEnglishName?:String ;
+  // 类型中文名
+  categoryChineseName?:String ;
+  // 类型关联父级id
+  categoryParentId?:String ;
+  // 类型百科信息
+  categoryCyclopedia?:String ;
+}

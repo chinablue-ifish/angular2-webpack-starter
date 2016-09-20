@@ -1,0 +1,32 @@
+:host {
+  display: block;
+}
+
+img {
+  width: 100%;
+}
+
+.i-title {
+  > img {
+    width: auto;
+    position: relative;
+    top: -45px;
+    left: -30px;
+  }
+}
+
+.i-content {
+  padding: 40px;
+}
+
+.i-index {
+  padding: 40px;
+}
+
+ul.i-points {
+  list-style: none;
+  padding: 0;
+  > li {
+    margin-bottom: 1em;
+  }
+}

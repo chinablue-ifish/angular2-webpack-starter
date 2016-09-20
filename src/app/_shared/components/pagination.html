@@ -1,0 +1,11 @@
+<ul class="pagination">
+  <li [class.disabled]="currentPage == 0">
+    <a href (click)="previousPage(); $event.preventDefault()">前一页</a>
+  </li>
+  <li [class.active]="currentPage == page" *ngFor="let page of pages">
+    <a href (click)="goto(page); $event.preventDefault()">{{page + 1}}</a>
+  </li>
+  <li [class.disabled]="(currentPage+1) == pages.length">
+    <a href (click)="nextPage(); $event.preventDefault()">后一页</a>
+  </li>
+</ul>

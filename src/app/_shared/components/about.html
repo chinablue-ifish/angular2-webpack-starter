@@ -1,0 +1,21 @@
+<div class="banner">
+  <img [src]="bannerImageUrl|trustAsImgUrl" [alt]="title"/>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1 i-title">
+      <img [src]="titleImageUrl|trustAsImgUrl" [alt]="title"/>
+    </div>
+    <div class="col-sm-8 i-content" [innerHTML]="content">
+    </div>
+    <div class="col-sm-3 i-index">
+      <ul class="i-points">
+        <li *ngFor="let link of asideLinks">
+          <a [href]="link.url" *ngIf="link.url">{{link.title}}</a>
+          <span *ngIf="!link.url">{{link.title}}</span>
+        </li>
+      </ul>
+      <img [src]="asideImageUrl|trustAsImgUrl" [alt]="title"/>
+    </div>
+  </div>
+</div>

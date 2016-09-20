@@ -1,0 +1,12 @@
+@import "variables";
+@import "mixins";
+
+.icon {
+  position: relative;
+  width: 1em;
+  height: 1em;
+  bottom: -0.1em;
+  * {
+    fill: currentcolor;
+  }
+}

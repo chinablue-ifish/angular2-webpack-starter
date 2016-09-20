@@ -17,7 +17,7 @@ export class SelectVendorDialog {
   @Input() item;
   @Output() cancelDialogRequest = new EventEmitter();
   @Output() vendorNamesChange = new EventEmitter();
-
+  
   error;
 
   ngOnInit() {

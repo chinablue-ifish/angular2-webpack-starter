@@ -121,3 +121,19 @@ interface ErrorConstructor extends ErrorStackTraceLimit {}
 interface NodeRequireFunction extends Es6PromiseLoader  {}
 interface NodeModule extends WebpackModule {}
 interface Global extends GlobalEnvironment  {}
+
+declare module 'c3' {
+  export class Chart {
+    load(data);
+  }
+
+  export function generate(config): Chart;
+}
+
+declare module "coordinate-systems" {
+  class Coordinate {
+    static cart(xyz: number[]): Coordinate;
+    static polar(rt: number[]): Coordinate;
+    polar(): number[];
+  }
+}

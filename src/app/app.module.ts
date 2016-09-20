@@ -22,10 +22,12 @@ import { XLarge } from './home/x-large';
 
 import { Ng2BootstrapModule } from 'ng2-bootstrap';
 import {UserImports} from "./app.imports";
+import {UserProviders} from "./app.providers"
 
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
+  ...UserProviders,
   AppState
 ];
 

@@ -1,4 +1,4 @@
-import { XLarge } from './x-large';
+//import { XLarge } from './x-large';
 import {NavHeader} from "./nav/header";
 import {NavBreadcrumb} from "./nav/breadcrumb";
 import {NavFooter} from "./nav/footer";
@@ -8,8 +8,19 @@ import {HomeHighlight} from "./home/highlight";
 import {HomePartner} from "./home/partner";
 import {HomeRecommended} from "./home/recommended";
 import {Source} from "./source/index";
+import {UserStatus} from "./user/status";
+import {DecodeUriPipe} from './_shared/pipes/decode-uri-pipe';
+import {TrustAsImgUrlPipe} from './_shared/pipes/trust-as-img-url';
+import {UrlStrengthPipe} from './_shared/pipes/UrlStrength';
+import {PersonalInfoModal} from "./user/modal/personal-info-modal";
+import {ModifyPasswordModal} from "./user/modal/modify-password-modal";
 
-export const UserImports=[
+export const UserImports = [
+  PersonalInfoModal,
+  ModifyPasswordModal,
+  DecodeUriPipe,
+  TrustAsImgUrlPipe,
+  UrlStrengthPipe,
   NavHeader,
   NavBreadcrumb,
   NavFooter,
@@ -18,5 +29,6 @@ export const UserImports=[
   HomeHighlight,
   HomePartner,
   HomeRecommended,
-  Source
+  Source,
+  UserStatus
 ]

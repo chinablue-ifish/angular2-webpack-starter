@@ -1,9 +1,5 @@
 import {Component} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
-import {NavFooter} from "../nav/footer";
-import {NavHeader} from "../nav/header";
-import {NavBreadcrumb} from "../nav/breadcrumb";
-import {About} from "../_shared/components/about";
 
 const TaoData = {
   catch: {
@@ -60,8 +56,7 @@ const TaoData = {
   template: require('./index.html'),
   styles: [
     require('./index.scss')
-  ],
-  directives: [NavHeader, NavFooter, NavBreadcrumb, About]
+  ]
 })
 export class Tao {
   data:{title:string};

@@ -3,13 +3,10 @@ import {Auth} from "../_shared/api/Auth";
 import {Router, ActivatedRoute, RouterLink} from "@angular/router";
 import {RegisterForm} from "../_shared/models/RegisterForm";
 import {
-  FORM_DIRECTIVES,
-  REACTIVE_FORM_DIRECTIVES,
   FormBuilder,
   FormGroup,
   Validators,
   FormControl,
-  AbstractControl
 } from '@angular/forms';
 
 const emailRegex = '^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$';
@@ -21,7 +18,7 @@ const emailValidator = new RegExp(emailRegex, 'i');
   styles: [
     require('./register.scss')
   ],
-  directives: [RouterLink, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES]
+  //TODO deprecated;  directives: [RouterLink, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES]
 })
 export class UserRegister implements OnInit {
 

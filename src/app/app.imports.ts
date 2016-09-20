@@ -14,8 +14,15 @@ import {TrustAsImgUrlPipe} from './_shared/pipes/trust-as-img-url';
 import {UrlStrengthPipe} from './_shared/pipes/UrlStrength';
 import {PersonalInfoModal} from "./user/modal/personal-info-modal";
 import {ModifyPasswordModal} from "./user/modal/modify-password-modal";
+import {ForgetPasswordDialog} from "./user/dialog/forget-password-dialog";
+import {Chart} from './_shared/components/chart';
+import {DatePipe} from './purchasing/datePipe';
+
 
 export const UserImports = [
+  DatePipe,
+  Chart,
+  ForgetPasswordDialog,
   PersonalInfoModal,
   ModifyPasswordModal,
   DecodeUriPipe,

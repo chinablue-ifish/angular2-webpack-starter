@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {Auth} from "../_shared/api/Auth";
-import {ForgetPasswordDialog} from "./dialog/forget-password-dialog";
+
 
 
 interface LoginForm {
@@ -11,7 +11,6 @@ interface LoginForm {
 @Component({
   selector: 'user-login',
   template: require('./login.html'),
-  directives: [ForgetPasswordDialog],
   styles: [
     require('./login.scss')
   ]

@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import {UrlPair} from "../utils/url-pair";
-import {TrustAsImgUrlPipe} from '../pipes/trust-as-img-url';
 
 @Component({
   selector: 'about',
@@ -8,7 +7,6 @@ import {TrustAsImgUrlPipe} from '../pipes/trust-as-img-url';
     require('./about.scss')
   ],
   template: require('./about.html'),
-  pipes: [TrustAsImgUrlPipe]
 })
 export class About {
   constructor() {

@@ -157,6 +157,19 @@ module.exports = function(options) {
         aggregateTimeout: 300,
         poll: 1000
       },
+      proxy: {
+        '/api/*': {
+          target: 'http://www.ifishonline.org',
+          rewrite: function (req) {
+            req.url = req.url.replace(/^\/api/, '');
+          }
+        }, '/ifishimage/*': {
+          target: 'http://www.ifishonline.org',
+          rewrite: function (req) {
+            req.url = req.url.replace(/^\/ifishimage/, '');
+          }
+        }
+      },
       outputPath: helpers.root('dist')
     },
 

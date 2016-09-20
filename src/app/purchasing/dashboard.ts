@@ -2,20 +2,16 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {PurchasingOrders} from '../_shared/api/PurchasingOrders';
 import {PurchasingOrder} from '../_shared/models/PurchasingOrder';
-import {Chart} from '../_shared/components/chart';
 import * as _ from 'lodash';
 import {UrlPair} from '../_shared/utils/url-pair';
-import {NavBreadcrumb} from '../nav/breadcrumb';
-import {DatePipe} from './datePipe';
+import {Chart} from "../_shared/components/chart";
 
 @Component({
   selector: 'purchasing-dashboard',
   template: require('./dashboard.html'),
   styles: [
     require('./dashboard.scss')
-  ],
-  directives: [Chart, NavBreadcrumb],
-  pipes: [DatePipe]
+  ]
 })
 export class PurchasingDashboard implements OnInit {
   constructor(private route: ActivatedRoute, private orders: PurchasingOrders) {

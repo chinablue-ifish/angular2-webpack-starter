@@ -1,5 +1,5 @@
 import {Component, Input, ElementRef, OnInit, OnChanges} from "@angular/core";
-import {DomSanitizationService, SafeUrl} from "@angular/platform-browser";
+import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 import {encode} from "../utils/base64";
 
 import * as c3 from "c3";
@@ -18,7 +18,7 @@ export class Chart implements OnInit, OnChanges {
 
   chart:c3.Chart;
 
-  constructor(private element:ElementRef, private sanitizer:DomSanitizationService) {
+  constructor(private element:ElementRef, private sanitizer:DomSanitizer) {
 
   }
 

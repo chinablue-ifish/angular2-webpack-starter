@@ -1,8 +1,11 @@
 import {Component, OnInit, Input} from "@angular/core";
+
+/* //TODO: deprecated; 
 import {CircularProgress} from "../_shared/directives/circular-progress";
 import {AquaticLevelImgPipe} from "./aquatic-level-img-pipe";
 import {TrustAsImgUrlPipe} from "../_shared/pipes/trust-as-img-url";
 import {AquaticLevelPipe} from "./aquatic-level-pipe";
+*/
 
 @Component({
   selector: 'source-level',
@@ -10,8 +13,8 @@ import {AquaticLevelPipe} from "./aquatic-level-pipe";
   styles: [
     require('./level.scss')
   ],
-  directives: [CircularProgress],
-  pipes: [AquaticLevelImgPipe, TrustAsImgUrlPipe, AquaticLevelPipe]
+  //TODO: deprecated;  directives: [CircularProgress],
+  //TODO: deprecated;  pipes: [AquaticLevelImgPipe, TrustAsImgUrlPipe, AquaticLevelPipe]
 })
 export class SourceLevel implements OnInit {
   constructor() {

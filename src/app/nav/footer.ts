@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {RouterLink} from "@angular/router";
+// import {RouterLink} from "@angular/router"; //TODO:deprecated
 
 @Component({
   selector: 'nav-footer',
@@ -7,7 +7,7 @@ import {RouterLink} from "@angular/router";
   styles: [
     require('./footer.scss')
   ],
-  directives: [RouterLink]
+  //directives: [RouterLink] //TODO:deprecated
 })
 export class NavFooter implements OnInit {
   constructor() {

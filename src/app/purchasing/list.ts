@@ -3,10 +3,12 @@ import {PurchasingOrders} from "../_shared/api/PurchasingOrders";
 import {OrderStatusPipe} from "../_shared/pipes/OrderStatusPipe";
 import {NavBreadcrumb} from "../nav/breadcrumb";
 import {UrlPair} from "../_shared/utils/url-pair";
+/*
 import {DeletePurchasingOrderDialog} from "./dialog/delete-purchasing-order-dialog.ts";
 import {CompletePurchasingOrderDialog} from "./dialog/complete-purchasing-order-dialog";
 import {DatePipe} from "./datePipe";
 import {PaginationDemoComponent} from "../_shared/components/pagination";
+*/
 import {Router} from "@angular/router";
 
 @Component({
@@ -15,8 +17,9 @@ import {Router} from "@angular/router";
     require('./list.scss')
   ],
   template: require('./list.html'),
-  pipes: [OrderStatusPipe, DatePipe],
-  directives: [NavBreadcrumb, DeletePurchasingOrderDialog, CompletePurchasingOrderDialog, PaginationDemoComponent]
+
+  //TODO: deprecated; pipes: [OrderStatusPipe, DatePipe],
+  //TODO: deprecated; directives: [NavBreadcrumb, DeletePurchasingOrderDialog, CompletePurchasingOrderDialog, PaginationDemoComponent]
 })
 export class PurchasingList {
   constructor(private orders:PurchasingOrders, private router:Router) {

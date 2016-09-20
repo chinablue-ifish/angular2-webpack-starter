@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
+
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -18,6 +19,9 @@ import { Home } from './home';
 import { About } from './about';
 import { NoContent } from './no-content';
 import { XLarge } from './home/x-large';
+
+import { Ng2BootstrapModule } from 'ng2-bootstrap';
+import {UserImports} from "./app.imports";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -37,6 +41,7 @@ type StoreType = {
 @NgModule({
   bootstrap: [ App ],
   declarations: [
+    ...UserImports,
     App,
     About,
     Home,
@@ -47,6 +52,7 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
+    Ng2BootstrapModule,
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

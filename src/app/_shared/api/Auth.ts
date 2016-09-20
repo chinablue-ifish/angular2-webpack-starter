@@ -3,6 +3,8 @@ import {Http, Headers, Response} from '@angular/http';
 import {User} from "../models/User";
 import {RegisterForm} from "../models/RegisterForm";
 
+import 'rxjs/add/operator/toPromise';
+
 @Injectable()
 export class Auth {
   constructor(private http:Http) {

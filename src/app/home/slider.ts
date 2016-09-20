@@ -1,7 +1,7 @@
 import {Component, OnInit, OnDestroy} from "@angular/core";
 import {Router} from '@angular/router';
-import {CAROUSEL_DIRECTIVES} from "ng2-bootstrap/ng2-bootstrap";
-import {TrustAsImgUrlPipe} from '../_shared/pipes/trust-as-img-url';
+//TODO:deprecated;   import {CAROUSEL_DIRECTIVES} from "ng2-bootstrap/ng2-bootstrap";
+//TODO:deprecated;   import {TrustAsImgUrlPipe} from '../_shared/pipes/trust-as-img-url';
 
 @Component({
   selector: 'home-slider',
@@ -9,8 +9,8 @@ import {TrustAsImgUrlPipe} from '../_shared/pipes/trust-as-img-url';
   styles: [
     require('./slider.scss')
   ],
-  directives: [CAROUSEL_DIRECTIVES],
-  pipes: [TrustAsImgUrlPipe],
+  //TODO:deprecated;   directives: [CAROUSEL_DIRECTIVES],
+  //TODO:deprecated;   pipes: [TrustAsImgUrlPipe],
 })
 export class HomeSlider implements OnInit, OnDestroy {
   constructor(private router: Router) {

@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
-import {RouterLink} from '@angular/router';
-import {TrustAsImgUrlPipe} from '../_shared/pipes/trust-as-img-url';
+//TODO:deprecated;  import {RouterLink} from '@angular/router';
+//TODO:deprecated;  import {TrustAsImgUrlPipe} from '../_shared/pipes/trust-as-img-url';
 import {AquaticSources} from '../_shared/api/AquaticSources';
 import {UrlStrengthPipe} from '../_shared/pipes/UrlStrength';
 
@@ -11,8 +11,8 @@ import {UrlStrengthPipe} from '../_shared/pipes/UrlStrength';
   styles: [
     require('./recommended.scss')
   ],
-  directives: [RouterLink],
-  pipes: [TrustAsImgUrlPipe, UrlStrengthPipe],
+  //TODO:deprecated;   directives: [RouterLink],
+  //TODO:deprecated;   pipes: [TrustAsImgUrlPipe, UrlStrengthPipe],
 })
 export class HomeRecommended implements OnInit {
   constructor(private sources: AquaticSources) {

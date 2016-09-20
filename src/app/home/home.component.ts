@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { AppState } from '../app.service';
 import { Title } from './title';
+/* TODO:deprecated;   
 import { XLarge } from './x-large';
 import {NavHeader} from "../nav/header";
 import {NavBreadcrumb} from "../nav/breadcrumb";
@@ -11,12 +12,14 @@ import {HomeSlider} from "./slider";
 import {HomeHighlight} from "./highlight";
 import {HomePartner} from "./partner";
 import {HomeRecommended} from "./recommended";
+*/
 
 @Component({
   // The selector is what angular internally uses
   // for `document.querySelectorAll(selector)` in our index.html
   // where, in this case, selector is the string 'home'
   selector: 'home',  // <home></home>
+  /* TODO:deprecated;   
   directives: [
     NavHeader,
     NavBreadcrumb,
@@ -26,7 +29,7 @@ import {HomeRecommended} from "./recommended";
     HomeRecommended,
     HomePartner,
     SourceSearch
-  ],
+  ],*/
   // We need to tell Angular's Dependency Injection which providers are in our app.
   providers: [
     Title

@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {UrlPair} from '../_shared/utils/url-pair';
-import {DecodeUriPipe} from '../_shared/pipes/decode-uri-pipe';
+//import {DecodeUriPipe} from '../_shared/pipes/decode-uri-pipe';//TODO:deprecated
 
 @Component({
   selector: 'nav-breadcrumb',
@@ -8,7 +8,7 @@ import {DecodeUriPipe} from '../_shared/pipes/decode-uri-pipe';
     require('./breadcrumb.scss')
   ],
   template: require('./breadcrumb.html'),
-  pipes: [DecodeUriPipe],
+  //pipes: [DecodeUriPipe],//TODO:deprecated
 })
 export class NavBreadcrumb {
   constructor() {

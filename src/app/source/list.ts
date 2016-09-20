@@ -6,17 +6,21 @@ import {AquaticSources} from "../_shared/api/AquaticSources";
 import {Auth} from "../_shared/api/Auth";
 import {UrlStrengthPipe} from "../_shared/pipes/UrlStrength";
 import {AquaticRegions} from "../_shared/api/AquaticRegions";
+import {UrlPair} from "../_shared/utils/url-pair";
+import {PurchasingOrders} from "../_shared/api/PurchasingOrders";
+import {PurchasingOrder} from "../_shared/models/PurchasingOrder";
+
+/* TODO:deprecated;
 import {NavHeader} from "../nav/header";
 import {NavBreadcrumb} from "../nav/breadcrumb";
 import {NavFooter} from "../nav/footer";
-import {UrlPair} from "../_shared/utils/url-pair";
+
 import {PaginationDemoComponent} from "../_shared/components/pagination";
 import {AquaticLevelImgPipe} from "./aquatic-level-img-pipe";
-import {PurchasingOrders} from "../_shared/api/PurchasingOrders";
-import {PurchasingOrder} from "../_shared/models/PurchasingOrder";
+
 import {RegionTransformationPipe} from "../_shared/pipes/regionTransformationPipe";
 import {TrustAsImgUrlPipe} from "../_shared/pipes/trust-as-img-url";
-
+*/
 
 @Component({
   selector: 'aquatic-source-list',
@@ -25,8 +29,9 @@ import {TrustAsImgUrlPipe} from "../_shared/pipes/trust-as-img-url";
   ],
   template: require('./list.html'),
   providers: [AquaticRegions],
-  directives: [PurchasingConfirmDialog, NavHeader, NavBreadcrumb, NavFooter, PaginationDemoComponent],
-  pipes: [UrlStrengthPipe, AquaticLevelImgPipe, RegionTransformationPipe, TrustAsImgUrlPipe]
+  
+  //TODO: deprecated;    directives: [PurchasingConfirmDialog, NavHeader, NavBreadcrumb, NavFooter, PaginationDemoComponent],
+  //TODO: deprecated;    pipes: [UrlStrengthPipe, AquaticLevelImgPipe, RegionTransformationPipe, TrustAsImgUrlPipe]
 })
 export class SourceList {
   constructor(private sources: AquaticSources, private route: ActivatedRoute,

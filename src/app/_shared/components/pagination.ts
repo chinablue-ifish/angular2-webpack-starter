@@ -1,13 +1,13 @@
-import {PAGINATION_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
+//TODO: deprecated;  import {PAGINATION_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 import {Component, Output, Input, EventEmitter} from '@angular/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES} from '@angular/common';
+//TODO: deprecated;  import {CORE_DIRECTIVES, FORM_DIRECTIVES} from '@angular/common';
 let template = require('./pagination.html');
 import * as _ from 'lodash';
 
 @Component({
   selector: 'pagination-entity',
   styles: [require('./pagination.scss')],
-  directives: [PAGINATION_DIRECTIVES, FORM_DIRECTIVES, CORE_DIRECTIVES],
+  //TODO: deprecated;  directives: [PAGINATION_DIRECTIVES, FORM_DIRECTIVES, CORE_DIRECTIVES],
   template: template
 })
 export class PaginationDemoComponent {

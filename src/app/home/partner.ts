@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TrustAsImgUrlPipe} from '../_shared/pipes/trust-as-img-url';
+//TODO:deprecated;   import {TrustAsImgUrlPipe} from '../_shared/pipes/trust-as-img-url';
 
 @Component({
   selector: 'home-partner',
@@ -7,7 +7,7 @@ import {TrustAsImgUrlPipe} from '../_shared/pipes/trust-as-img-url';
   styles: [
     require('./partner.scss')
   ],
-  pipes: [TrustAsImgUrlPipe]
+  //TODO:deprecated;   pipes: [TrustAsImgUrlPipe]
 })
 export class HomePartner implements OnInit {
   constructor() {

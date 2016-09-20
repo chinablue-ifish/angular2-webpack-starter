@@ -2,9 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {PurchasingOrders} from '../_shared/api/PurchasingOrders';
 import {PurchasingOrder} from '../_shared/models/PurchasingOrder';
+import {UrlPair} from '../_shared/utils/url-pair';
+
+/* TODO: deprecated;
 import {UrlStrengthPipe} from '../_shared/pipes/UrlStrength';
 import {NavBreadcrumb} from '../nav/breadcrumb';
-import {UrlPair} from '../_shared/utils/url-pair';
+
 import {ModifyPurchasingOrderNameDialog} from './dialog/modify-purchasing-order-name-dialog';
 import {ShowVendors} from './show-vendors';
 import {SelectVendorDialog} from './dialog/select-vendor-dialog';
@@ -15,14 +18,16 @@ import {DeletePurchasingOrderItemDialog} from './dialog/delete-order-item-dialog
 import {TrustAsImgUrlPipe} from '../_shared/pipes/trust-as-img-url';
 import {StopPropagationDirective} from '../_shared/directives/stop-propagation';
 
+*/
+
 @Component({
   selector: 'purchasing-show',
   template: require('./show.html'),
   styles: [
     require('./show.scss')
   ],
-  directives: [ModifyPurchasingOrderNameDialog, NavBreadcrumb, ShowVendors, SelectVendorDialog, DeletePurchasingOrderItemDialog, StopPropagationDirective],
-  pipes: [UrlStrengthPipe, DatePipe, AquaticLevelImgPipe, RegionTransformationPipe, TrustAsImgUrlPipe],
+  //TODO: deprecated;   directives: [ModifyPurchasingOrderNameDialog, NavBreadcrumb, ShowVendors, SelectVendorDialog, DeletePurchasingOrderItemDialog, StopPropagationDirective],
+  //TODO: deprecated;  pipes: [UrlStrengthPipe, DatePipe, AquaticLevelImgPipe, RegionTransformationPipe, TrustAsImgUrlPipe],
 })
 export class PurchasingShow implements OnInit {
   constructor(private route: ActivatedRoute, private orders: PurchasingOrders, private router: Router) {

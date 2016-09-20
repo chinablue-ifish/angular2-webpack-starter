@@ -179,15 +179,20 @@ module.exports = function(options) {
          */
         {
           test: /\.html$/,
-          loader: 'raw-loader',
+          loader: 'html!markup-inline',
           exclude: [helpers.root('src/index.html')]
         },
 
         /* File loader for supporting images, for example, in CSS files.
         */
         {
-          test: /\.(jpg|png|gif)$/,
-          loader: 'file'
+          test: /\.(png|jpg|jpeg|gif)$/,
+          exclude: /node_modules/,
+          loader: "url?limit=8092&name=images/[hash].[ext]"
+        },
+        {
+          test: /\.svg$/,
+          loader: 'file?name=images/[hash].[ext]'
         }
       ],
 

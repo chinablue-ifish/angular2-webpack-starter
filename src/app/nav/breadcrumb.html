@@ -1,0 +1,17 @@
+<div class="container">
+  <ul class="breadcrumb">
+    <li>
+      <a [routerLink]="['/']">
+        <img src="_images/home.svg" class="icon" />
+      </a>
+    </li>
+    <li *ngFor="let path of paths; let last=last">
+      <span *ngIf="last">
+      {{path.title|decodeUri}}
+      </span>
+      <a *ngIf="!last" [routerLink]="[path.url, path.urlParams||{}]">
+        {{path.title|decodeUri}}
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,39 @@
+<form class="form-horizontal" (ngSubmit)="submit()" novalidate>
+  <div class="form-group">
+    <h4>
+      <img class="logo" src="./_images/iFISH-colored.png"/>
+    </h4>
+  </div>
+  <div class="form-group" *ngIf="error">
+    <div class="alert alert-danger">
+      {{error}}
+    </div>
+  </div>
+  <div class="form-group user-email">
+    <input type="email" class="form-control" id="_login-email" required placeholder="电子邮箱"
+           name="email"
+           [(ngModel)]="form.email"/>
+  </div>
+  <div class="form-group user-password">
+    <input type="password" class="form-control" id="_login-password"
+           name="password"
+           required placeholder="密码"
+           [(ngModel)]="form.password"/>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary btn-block">登录</button>
+    <button type="reset" class="btn btn-muted btn-block">取消</button>
+  </div>
+  <forget-password-dialog (cancelDialogRequest)="hideDialog()"
+                                       *ngIf="showDialog"></forget-password-dialog>
+  <div class="form-group">
+    <p class="clearfix">
+      <a href="javascript:;" (click)="gotoDialog()" class="pull-left">忘记密码？</a>
+      <a [routerLink]="['/user/register']" class="pull-right">注册</a>
+    </p>
+
+    <div class="alert alert-info" *ngIf="_resetPasswordVisible">
+      如果您忘记了密码，请与系统管理员联系
+    </div>
+  </div>
+</form>

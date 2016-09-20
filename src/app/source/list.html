@@ -1,0 +1,139 @@
+<header>
+  <nav-header></nav-header>
+  <nav-breadcrumb [paths]="navPaths"></nav-breadcrumb>
+</header>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-2">
+        <h5>
+          搜索
+        </h5>
+        <input type="search" class="form-control" placeholder="搜索"
+               #keywordInput (keyup.enter)="search(keywordInput.value)" [value]="keyword"/>
+
+        <div>
+          <h5>
+            结果筛选
+          </h5>
+          <label for="_productPattern">生产方式</label>
+          <div class="radio" *ngFor="let pattern of patterns">
+            <label>
+              <input type="radio" value="{{pattern.value}}" [ngModel]="produce.pattern"
+                     (ngModelChange)="broadsideProducePatternFilter(pattern.value)"/>
+              {{pattern.title}}
+            </label>
+          </div>
+
+          <label *ngIf="aquaticRegion.regionCache" for="_productRegion">生产区域</label>
+          <div class="radio" *ngFor="let region of regions">
+            <label>
+              <input type="radio" value="{{region.value}}" [ngModel]="produce.region"
+                     (ngModelChange)="broadsideProduceRegionFilter(region.value)"/>
+              {{region.title}}
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-10">
+        <div class="alert alert-info" *ngIf="!sources.items">
+          没有符合条件的水产品, 请改变条件, 重新搜索
+        </div>
+        <table *ngIf="sources.items" class="table table-hover table-striped table-bordered table-customized">
+          <thead>
+          <tr>
+            <th class="col-md-2">图片</th>
+            <th class="col-md-1">中文名</th>
+            <th class="col-md-1">英文名</th>
+            <th class="col-md-1">评级信息</th>
+            <th class="col-md-2">生产方式</th>
+            <th class="col-md-2">生产区域</th>
+            <th *ngIf="auth.loggedIn" class="col-md-2">操作</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of sources.items" (click)="gotoAquaticDetails(item.id)">
+            <td class="image-cell">
+              <div class="image-container">
+                <img [src]="item.imgUrl | urlStrength" (alt)="item.commonName"/>
+              </div>
+            </td>
+            <td>
+              {{item.chineseName}}
+            </td>
+            <td>
+              {{item.englishName}}
+            </td>
+            <td>
+              <img class="level-img" [src]="item.level | aquaticLevelImg | trustAsImgUrl"/>
+            </td>
+            <td>
+              {{item.producePatternAlias}}
+            </td>
+            <td>
+              {{item.isHomemade | regionTransformation}}
+            </td>
+            <td class="special-td" *ngIf="auth.loggedIn" (click)="$event.stopPropagation();">
+              <button type="button" (click)="gotoPurchasingConfirmDialog(item.id)" class="btn btn-primary btn-round">
+                添加到采购清单
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <pagination-entity *ngIf="sources.items && sources.totalItems > 10" [bigTotalItems]="sources.totalItems"
+                           [currentPage]="currentPage" (currentPageChange)="gotoPage($event)" (numPages)="numPageChanged($event)"></pagination-entity>
+        <purchasing-confirm-dialog [currentSelectedItemId]="currentSelectedItemId"
+                                   [purchasingOrderList]="purchasingOrderList"
+                                   (cancelDialogRequest)="cancelPurchasingConfirmDialog()"
+                                   *ngIf="showDialog"></purchasing-confirm-dialog>
+
+        <table *ngIf="sources.recommendedItems" class="table table-hover table-striped table-bordered table-customized">
+          <thead>
+          <span class="label label-info">推荐产品</span>
+          <tr>
+            <th class="col-md-2">图片</th>
+            <th class="col-md-1">中文名</th>
+            <th class="col-md-1">英文名</th>
+            <th class="col-md-1">评级信息</th>
+            <th class="col-md-2">生产方式</th>
+            <th class="col-md-2">生产区域</th>
+            <th *ngIf="auth.loggedIn" class="col-md-2">操作</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of sources.recommendedItems" (click)="gotoAquaticDetails(item.id)">
+            <td class="image-cell">
+              <div class="image-container">
+                <img [src]="item.imgUrl | urlStrength" (alt)="item.commonName"/>
+              </div>
+            </td>
+            <td>
+              {{item.chineseName}}
+            </td>
+            <td>
+              {{item.englishName}}
+            <td>
+              <img class="level-img" [src]="item.level | aquaticLevelImg | trustAsImgUrl"/>
+            </td>
+            <td>
+              {{item.producePatternAlias}}
+            </td>
+            <td>
+              {{item.aquaticRegionName}}
+            </td>
+            <td class="special-td" *ngIf="auth.loggedIn" (click)="$event.stopPropagation();">
+              <button type="button" (click)="gotoPurchasingConfirmDialog(item.id)" class="btn btn-primary btn-round">
+                添加到采购清单
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>
+  <nav-footer></nav-footer>
+</footer>

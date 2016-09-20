@@ -1,0 +1,122 @@
+@import "../../_shared/styles/_common";
+
+:host {
+  display: block;
+}
+
+.purchasing-confirm-dialog {
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background: none;
+
+  .shadow {
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+    opacity: 0.8;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: grey;
+
+  }
+
+  .top {
+    position: fixed;
+    top: 20%;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+
+  .order-list {
+    height: 200px;
+    overflow: auto;
+
+    .order-list-group {
+      max-width: 80%;
+    }
+
+  }
+
+  .modal-dialog {
+    width: 438px;
+    min-height: 320px;
+    .modal-header {
+      text-align: center;
+      border: none;
+    }
+    .modal-content {
+
+      .modal-body {
+        position: relative;
+        padding: 30px 50px;
+        text-align: center;
+        p {
+          font-size: 14px;
+        }
+
+        .content-body {
+          margin: 45px 0;
+          .list-group {
+            height:200px;
+            overflow: scroll;
+          }
+        }
+      }
+    }
+  }
+
+  button {
+    width: 140px;
+    height: 30px;
+    margin: 10px;
+    &.btn-default {
+      background-color: #e1e1e1;
+      color: #ffffff;
+    }
+  }
+
+  .form-control {
+    width: 336px;
+    height: 38px;
+    text-align: left;
+  }
+
+  .init-nav {
+    cursor: pointer;
+    a {
+      color: gainsboro;
+      border: none;
+    }
+    &.active {
+      border-bottom: 3px solid $brand-primary;
+      a {
+        color: $brand-primary !important;
+      }
+    }
+  }
+
+  .customize-item {
+    cursor: pointer;
+    width: 336px;
+    margin: 10px 0;
+    &.active {
+      color: black;
+      background-color: white;
+      border: 2px solid $brand-primary;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+    }
+  }
+}

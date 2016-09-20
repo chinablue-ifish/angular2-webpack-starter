@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="row">
+    <div class="col-sm-4">
+      <img *ngIf="source.imgUrl" [src]="source.imgUrl | urlStrength"/>
+    </div>
+    <div class="col-sm-4">
+      <dl class="dl-horizontal">
+        <dt>中文名</dt>
+        <dd>{{source.chineseName}}</dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>英文名</dt>
+        <dd>{{source.englishName}}</dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>拉丁名</dt>
+        <dd>{{source.scientificName}}</dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>俗名</dt>
+        <dd>{{source.commonName}}</dd>
+      </dl>
+    </div>
+    <div class="col-sm-4">
+      <dl class="dl-horizontal">
+        <dt>生产方式</dt>
+        <dd>{{source.producePatternAlias}}</dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>生产区域</dt>
+        <dd>{{source.aquaticRegionName}}</dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>可借鉴认证</dt>
+        <dd *ngIf="source.aquaticAuthenticationImageSet">
+          <img class="authentication-img" *ngFor="let i of source.aquaticAuthenticationImageSet"
+               [src]="i | urlStrength" (alt)="item.commonName"/>
+          <p *ngIf="!source.aquaticAuthenticationImageSet?.length"> ( 暂无 ) </p>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>

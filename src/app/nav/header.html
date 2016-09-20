@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" [routerLink]="['/']">
+        <img class="logo" src="./_images/iFISH-colored.png"/>
+      </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a [routerLink]="['/source/list']" routerLinkActive="active">水产品搜索</a></li>
+      <li><a [routerLink]="['/about']" routerLinkActive="active">关于我们</a></li>
+      <li><a [routerLink]="['/purchasing/list']" *ngIf="auth.loggedIn" routerLinkActive="active">我的清单</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a class="wechat pull-right" href="javascript:;">
+          <img class="icon-pointer" *ngIf="auth.loggedIn" src="./_images/WeChat-active.svg"/>
+          <img class="icon-pointer" *ngIf="!auth.loggedIn" src="./_images/WeChat.svg"/>
+          <div class="popover qrcode bottom">
+            <div class="arrow"></div>
+            <div class="popover-content">
+              <img src="./_images/wechat_qr_code.jpeg" alt=""/>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+
+    <user-status></user-status>
+  </div>
+</nav>

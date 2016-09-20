@@ -1,0 +1,52 @@
+:host {
+  display: block;
+}
+
+table {
+  margin-top: 4em;
+  color: #7f7f7f;
+
+  th, td {
+    border-left: none;
+    border-right: none;
+  }
+  tbody {
+    tr {
+      cursor: pointer;
+    }
+  }
+  td {
+    vertical-align: middle;
+    padding: 2em 1em;
+  }
+  .col-name {
+    a {
+      text-decoration: underline;
+      color: #7f7f7f;
+      cursor: pointer;
+    }
+  }
+  .col-purchasing-date {
+    width: 10em;
+  }
+  .col-status {
+    width: 8em;
+  }
+  .col-actions {
+    width: 18em;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+}
+
+.btn {
+  padding-left: 2em;
+  padding-right: 2em;
+  outline: none;
+
+  &.btn-primary {
+    background-color: #3169A9;
+    border: none;
+  }
+}

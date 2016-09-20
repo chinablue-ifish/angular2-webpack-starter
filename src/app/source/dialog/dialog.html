@@ -1,0 +1,79 @@
+<div class="purchasing-confirm-dialog">
+  <div class="shadow">
+
+  </div>
+
+  <div *ngIf="showContent" class="modal-dialog top ">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <ul class="nav nav-tabs">
+          <li class="init-nav" [class.active]="showOldList === 1" (click)="showOldList = 1;error = null"
+              role="presentation"><a>原有采购清单</a>
+          </li>
+          <li class="init-nav" [class.active]="showOldList === 0" (click)="showOldList = 0;error = null;"
+              role="presentation"><a>新建采购清单</a>
+          </li>
+        </ul>
+
+        <div>
+          <div *ngIf="!(showOldList || purchasingOrderLis)">
+
+            <div class="content-body">
+              <div class="form-group" *ngIf="error">
+                <div class="alert alert-danger">
+                  {{error}}
+                </div>
+              </div>
+              <div class="input-group">
+                <input #purchasingOrderName type="text"
+                       class="form-control" placeholder="采购清单名称"
+                       aria-describedby="sizing-addon2">
+              </div>
+            </div>
+
+            <div>
+              <button type="button" (click)="cancelDialog()" class="btn btn-default" data-dismiss="modal">取消</button>
+              <button type="button" (click)="createPurchasingOrder(purchasingOrderName.value)" class="btn btn-primary">
+                确认
+              </button>
+            </div>
+          </div>
+
+          <div *ngIf="showOldList && purchasingOrderList">
+            <div class="form-group" *ngIf="error">
+              <div class="alert alert-danger">
+                {{error}}
+              </div>
+            </div>
+            <div class="input-group order-list-group content-body">
+              <ul class="list-group">
+                <li class="list-group-item customize-item"
+                    *ngFor="let item of purchasingOrderList; let first = first"
+                    [class.active]="selection === item"
+                    (click)="selection = item;">
+                  {{item.orderName}}
+                </li>
+              </ul>
+            </div>
+            <div>
+              <button type="button" (click)="cancelDialog()" class="btn btn-default" data-dismiss="modal">取消</button>
+              <button type="button" (click)="confirmSelectedOrder()" class="btn btn-primary">确认</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showPrompt" class="modal-dialog top ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>添加成功</h3>
+      </div>
+      <div class="modal-body">
+        <p>恭喜添加成功!</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div *ngIf="prompt">
+  正在激活，请稍候……
+</div>
+<div *ngIf="activated">
+  您的账户已经激活，请
+  <a routerLink="/user/login">点此登录</a>
+  。
+</div>
+<div *ngIf="showerror">
+  {{errormsg}}
+</div>

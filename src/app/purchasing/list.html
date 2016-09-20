@@ -1,0 +1,54 @@
+<nav-breadcrumb [paths]="navPaths"></nav-breadcrumb>
+<div class="container">
+  <table class="table table-hover table-striped table-bordered">
+    <thead>
+    <tr>
+      <th>清单名称</th>
+      <th>创建日期</th>
+      <th>当前状态</th>
+      <th class="text-center">操作</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="orders.items && orders.items.order">
+    <tr *ngFor="let item of orders.items.order" (click)="gotoOrderDetails(item.id)">
+      <td class="col-name">
+        {{item.orderName}}
+      </td>
+      <td class="col-purchasing-date">
+        {{item.createdDate|dateCustomization}}
+      </td>
+      <td class="col-status">
+        {{item.orderStatus|orderStatus}}
+      </td>
+      <td class="col-actions" (click)="$event.stopPropagation();">
+        <button type="button"
+                *ngIf="item.orderStatus != 'DONE'"
+                class="btn btn-danger" (click)="gotoDeleteDialog(item.id)">
+          <img src="./_images/trash.svg" class="icon" />
+          删除
+        </button>
+        <button type="button" class="btn btn-primary"
+                (click)="gotoCompletePurchasingDialog(item.id)"
+                *ngIf="item.orderStatus === 'DOING'">
+          采购完成
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <pagination-entity *ngIf="orders.items && orders.items.order && orders.items.totalCount > 10"
+                     [bigTotalItems]="orders.items.totalCount" (numPages)="numPageChanged($event)"></pagination-entity>
+</div>
+
+<delete-order-dialog *ngIf="showDeleteDialog"
+                     [(orders)]="orders"
+                     (cancelDialogRequest)="cancelDeleteDialog()"
+                     [orderId]="currentOperateOrderId">
+</delete-order-dialog>
+
+
+<complete-purchasing-order-dialog *ngIf="showCompletePurchasingDialog"
+                                  [(orders)]="orders"
+                                  (cancelDialogRequest)="cancelCompletePurchasingDialog()"
+                                  [orderId]="currentOperateOrderId">
+</complete-purchasing-order-dialog>

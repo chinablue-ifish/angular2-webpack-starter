@@ -1,0 +1,31 @@
+@import "../_shared/styles/common";
+
+/*styles for home content only*/
+:host {
+  display: block;
+  h3 {
+    font-family: "SimHei", serif;
+    font-size: 20px;
+  }
+}
+
+
+
+main {
+  display: block;
+  position: relative;
+  z-index: 100;
+  background-color: #f2f6f8;
+  input {
+    color: #898989;
+  }
+}
+
+.i-search-and-highlight {
+  margin-top: -95px;
+  background: white;
+  padding: 40px 80px;
+  source-search {
+    margin-bottom: 40px;
+  }
+}

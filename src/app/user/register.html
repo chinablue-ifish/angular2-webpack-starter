@@ -1,0 +1,52 @@
+<form class="form-horizontal" (ngSubmit)="submit()" novalidate [formGroup]="myForm">
+  <div class="form-group">
+    <h3>
+      注册成为<img class="logo" src="./_images/iFISH-colored.png"/>用户
+    </h3>
+    <div class="alert alert-danger" *ngIf="error">
+      {{error}}
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="email" class="form-control" required placeholder="电子邮箱"
+           name="email"
+           #email
+           [(ngModel)]="form.email"
+           [formControl]="myForm.controls['email']"
+    />
+    <div  *ngIf="!isActive(email) && form.email && myForm.controls['email'].hasError('invalidEmail')" class="alert alert-danger">
+      邮箱格式有误
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="password" class="form-control"
+           [(ngModel)]="form.password"
+           minlength="6"
+           name="password"
+           #password
+           [formControl]="myForm.controls['password']"
+           required placeholder="密码"
+    />
+    <div *ngIf="!isActive(password) && form.password && myForm.controls['password'].hasError('invalidPassword')" class="alert alert-danger">
+      密码长度应该为6-20
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="password" class="form-control"
+           name="confirmPassword"
+           #confirmPassword
+           required placeholder="再次输入密码"
+           [formControl]="myForm.controls['confirmPassword']"
+           [(ngModel)]="form.confirmPassword"/>
+    <div *ngIf="!isActive(confirmPassword) && form.confirmPassword && myForm.controls['confirmPassword'].hasError('invalidPassword')" class="alert alert-danger">
+      密码长度应该为6-20
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary btn-block">注册</button>
+    <button type="reset" class="btn btn-muted btn-block">取消</button>
+  </div>
+  <div class="form-group">
+    <a [routerLink]="['/user/login']" class="pull-right">已有账号</a>
+  </div>
+</form>

@@ -1,0 +1,30 @@
+<nav-breadcrumb [paths]="navPaths"></nav-breadcrumb>
+<div class="container">
+  <h2 *ngIf="order" class="order-name clearfix">
+    {{order.orderName}}
+    <small *ngIf="order.createdDate">{{"创建日期 " + (order.createdDate|dateCustomization)}}</small>
+    <a [routerLink]="['/purchasing/show', {id: order.id}]" class="btn btn-primary pull-right">Table</a>
+  </h2>
+
+
+
+  <div class="i-chart block-center">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <chart [data]="data" #chart></chart>
+        <h5>
+          清单中各类评级产品的对比
+        </h5>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p class="text-center">
+      <a *ngIf="!ie" class="btn btn-primary" [href]="getExportUrl(chart)" download="pie-chart.svg"
+         target="_blank">导出统计图</a>
+    </p>
+    <div class="alert alert-info" *ngIf="ie">
+      要导出统计图，请在统计图上点右键，选<strong>“图片另存为”</strong>菜单，可在文件类型中选择svg/png/jpg等格式。
+    </div>
+  </footer>
+</div>

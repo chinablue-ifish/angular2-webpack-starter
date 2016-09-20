@@ -1,0 +1,35 @@
+<div class="purchasing-confirm-dialog">
+  <div class="shadow">
+
+  </div>
+  <div class="modal-dialog top select-vendor">
+    <div class="modal-content">
+      <div class="modal-header">
+
+      </div>
+      <div *ngIf="vendorInfo" class="modal-body">
+        <div class="form-group" *ngIf="error">
+          <div class="alert alert-danger">
+            {{error}}
+          </div>
+        </div>
+        <div class="alert alert-info" *ngIf="!vendorInfo.length">
+          本产品没有合适的供应商
+        </div>
+        <p *ngFor="let item of vendorInfo">
+          <lable [attr.for]="item.company">
+            <input id="{{item.company}}" name="vendor"
+                   [(ngModel)]="item.checked"
+                   type="checkbox" value="{{item.id}}"/>{{item.company}}
+          </lable>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="cancelDialog()" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" (click)="updateSourceVendorMaps()" class="btn btn-primary">
+          确认
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

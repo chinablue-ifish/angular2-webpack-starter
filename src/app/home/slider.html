@@ -1,0 +1,33 @@
+<div class="carousel slide">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li *ngFor="let slider of sliders" [class.active]="selected(slider)" (click)="select(slider)"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div *ngFor="let slider of sliders" class="item" [class.active]="selected(slider)">
+      <img class="slider-image" [src]="slider.image|trustAsImgUrl" [alt]="slider.title">
+      <div class="i-description">
+        <p class="fixed_desc_hegiht">{{slider.description}}</p>
+        <a [routerLink]="[slider.more, slider.moreParams]" class="i-more pull-right">
+          了解更多
+          <img src="./_images/icon-right-o.svg" alt="">
+        </a>
+      </div>
+      <div class="logo">
+        <img [src]="slider.logo|trustAsImgUrl" [alt]="slider.title"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="javascript:;" role="button" (click)="prev()">
+    <img src="./_images/chevron-left.svg" class="icon"/>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="javascript:;" role="button" (click)="next()">
+    <img src="./_images/chevron-right.svg" class="icon"/>
+    <span class="sr-only">Next</span>
+  </a>
+</div>

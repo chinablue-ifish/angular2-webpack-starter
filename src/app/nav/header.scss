@@ -1,0 +1,67 @@
+@import "../_shared/styles/common";
+
+:host {
+  display: block;
+  padding: 8px 0;
+  background: $gray-lighter;
+}
+
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
+  .navbar-header {
+    margin-right: 16px;
+  }
+  a {
+    color: #7f7f7f;
+    font-family: SimHei, serif;
+    font-size: 14px;
+    margin-bottom: -2px;
+    border-bottom: 2px solid transparent;
+    &.active {
+      border-color: $brand-primary;
+    }
+  }
+
+  &.navbar-default {
+    border: none;
+    background: $gray-lighter;
+  }
+}
+
+.navbar-brand {
+  border-right: 1px solid #ddd;
+}
+
+img.logo {
+  height: 26px;
+}
+
+.icon-pointer {
+  cursor: pointer;
+}
+
+.wechat {
+  position: relative;
+  .qrcode {
+    position: absolute;
+    z-index: 1020;
+    top: 45px;
+    left: auto;
+    right: 0;
+    width: 200px;
+    display: none;
+    img {
+      width: 100%;
+    }
+  }
+  &:hover {
+    .qrcode {
+      display: block;
+    }
+  }
+  .popover.bottom > .arrow {
+    right: 20px;
+    left: auto;
+  }
+}

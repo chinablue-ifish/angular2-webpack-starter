@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="row">
+    <div class="col-sm-3">
+      <img [src]="source.level | aquaticLevelImg | trustAsImgUrl" (alt)="item.commonName"/>
+      <h5>{{source.level|aquaticLevel}}</h5>
+    </div>
+    <div class="col-sm-3">
+      <canvas width="100" height="100" circular-progress [value]="source.resilienceScore" [level]="source.level" [maxValue]="100"></canvas>
+      <h5>产业健康度</h5>
+    </div>
+    <div class="col-sm-3">
+      <canvas width="100" height="100" circular-progress [value]="source.environmentScore" [level]="source.level" [maxValue]="100"></canvas>
+      <h5>生态友好性</h5>
+    </div>
+    <div class="col-sm-3">
+      <canvas width="100" height="100" circular-progress [value]="source.safetyScore" [level]="source.level" [maxValue]="100"></canvas>
+      <h5>食品安全</h5>
+    </div>
+  </div>
+</div>

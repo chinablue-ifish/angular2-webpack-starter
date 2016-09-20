@@ -1,0 +1,38 @@
+@import "../_shared/styles/common";
+
+:host {
+  display: block;
+  margin-top: 50px;
+}
+
+h3 {
+  text-align: center;
+  color: #373737;
+}
+
+.i-list {
+  padding: 30px;
+  // background: white;
+  .row {
+    width: 100%;
+    > * {
+      text-align: center;
+      &:not(:first-child) {
+        border-left: 1px solid silver;
+      }
+    }
+    .col-sm-3 {
+      padding-left: 0;
+    }
+    img {
+      margin: auto;
+      display: block;
+      height: 160px;
+    }
+  }
+}
+
+a {
+  display: block;
+  margin: -60px 0;
+}

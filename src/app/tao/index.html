@@ -1,0 +1,12 @@
+<header>
+  <nav-header></nav-header>
+  <nav-breadcrumb [paths]="navPaths"></nav-breadcrumb>
+</header>
+<main>
+  <about *ngIf="data" [bannerImageUrl]="data.bannerImageUrl" [titleImageUrl]="data.titleImageUrl" [title]="data.title"
+         [content]="data.content" [asideLinks]="data.asideLinks" [asideImageUrl]="data.asideImageUrl">
+  </about>
+</main>
+<footer>
+  <nav-footer></nav-footer>
+</footer>

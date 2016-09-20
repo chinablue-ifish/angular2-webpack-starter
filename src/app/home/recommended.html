@@ -1,0 +1,10 @@
+<h3>推荐品种</h3>
+<div class="i-list">
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let source of recommendedSources">
+      <a [routerLink]="[source.url, source.urlParams]" target="_blank" [title]="source.commonName">
+        <img [src]="source.image|urlStrength" [alt]="source.commonName"/>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+:host {
+  display: block;
+  > main {
+    min-height: calc(100vh - 68px - 76px - 35px);
+  }
+  p {
+    color: #7f7f7f;
+    font-family: SimHei, serif;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,49 @@
+@import '../_shared/styles/common';
+
+:host {
+  display: block;
+  .order-name {
+    font-size: 20px;
+  }
+}
+
+.i-chart {
+  padding: 50px 0;
+  width: 56em;
+  margin: 0 auto;
+  text-align: center;
+  color: $gray-light;
+  .panel-body {
+    padding: 52px 0;
+    width: 63em;
+    height: 405px;
+
+    h5 {
+      position: relative;
+      bottom: 20px;
+      left: -40px;
+    }
+    chart {
+      display: block;
+      margin: 0 auto;
+      max-height: 303px;
+      position: relative;
+      bottom: 22px;
+    }
+  }
+}
+
+.btn {
+  padding-left: 2em;
+  padding-right: 2em;
+  width: 14em;
+  &.pull-right {
+    width: 7em;
+    background-color: #3169a9;
+    border: none;
+  }
+}
+
+footer {
+  margin-bottom: 50px;
+}

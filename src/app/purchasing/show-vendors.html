@@ -1,0 +1,15 @@
+<div *ngIf="vendorNames && vendorNames[0]">
+  <p *ngFor="let v of vendorNames">{{v}}</p>
+  <button *ngIf="orderStatus != 'DONE'" (click)="clearVendorNames(item.id)" class="btn">清除供应商</button>
+</div>
+
+<div *ngIf="!vendorNames && orderStatus != 'DONE'">
+  <a (click)="viewVendorInfo()">供应商信息</a>
+</div>
+
+
+<select-vendor-dialog [vendorInfo]="pulledVendorInfo"
+                      [item]="item"
+                      [(vendorNames)]="vendorNames"
+                      (cancelDialogRequest)="cancelSelectVendorsDialog()"
+                      *ngIf="showDialog"></select-vendor-dialog>

@@ -1,0 +1,31 @@
+<header>
+  <nav-header></nav-header>
+  <nav-breadcrumb [paths]="navPaths"></nav-breadcrumb>
+</header>
+<main>
+  <div class="container">
+    <div *ngIf="!source">
+      正在加载, 请稍候……
+    </div>
+    <div *ngIf="source">
+      <source-base [source]="source"></source-base>
+      <p class="subtitle">
+        评级结果
+        <small class="pull-right">
+          <a href="javascript:;" (click)="lgModal.show()">评级指标</a>
+        </small>
+      </p>
+      <source-level [source]="source"></source-level>
+      <p class="subtitle">评估概要</p>
+      <source-report [source]="source"></source-report>
+      <p class="subtitle">延伸阅读</p>
+      <source-more [source]="source"></source-more>
+    </div>
+  </div>
+  <grade-modal bsModal #lgModal="bs-modal"
+               class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"
+               (close)="lgModal.hide()"></grade-modal>
+</main>
+<footer>
+  <nav-footer></nav-footer>
+</footer>

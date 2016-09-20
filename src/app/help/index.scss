@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  color: #797979;
+  header {
+    width: 100%;
+  }
+  p {
+    color: #7f7f7f;
+    font-family: SimHei, serif;
+    font-size: 14px;
+  }
+}
+
+main {
+  min-height: calc(100vh - 54px - 52px);
+  background-color: #f2f6f8;
+  .container {
+    padding-top: 49px;
+    padding-bottom: 79px;
+  }
+}

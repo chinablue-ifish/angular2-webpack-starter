@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  text-align: center;
+  color: #7f7f7f;;
+  .card {
+    background: white;
+    padding: 24px;
+    border-radius: 4px;
+  }
+}
+
+canvas[circular-progress] {
+  width: 100px;
+  height: 100px;
+}
+
+.i-level {
+  padding: 25px 0;
+  text-align: center;
+}
+
+.i-safety, .i-carbon-footprint, .i-recovery {
+  text-align: center;
+}
+
+img {
+  height: 58px;
+  margin: 24px 0;
+}

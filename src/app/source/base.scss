@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  color: #7f7f7f;
+}
+
+img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  max-height: 156px;
+}
+
+.authentication-img {
+  display: inline-block;
+  max-width: 40px;
+  max-height: 40px;
+}
+
+.card {
+  padding: 38px 0;
+  background: white;
+  border-radius: 4px;
+}
+
+.dl-horizontal {
+  dt {
+    width: 7em;
+    color: #313131;
+  }
+  dd {
+    margin-left: 9em;
+  }
+}

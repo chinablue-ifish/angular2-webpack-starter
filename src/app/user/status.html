@@ -1,0 +1,38 @@
+<ul class="nav navbar-nav navbar-right" *ngIf="!auth.loggedIn">
+  <li router-active><a [routerLink]="['/user/login', {cacheNavigation: cacheNavigation}]">登录</a></li>
+  <li router-active><a [routerLink]="['/user/register', {cacheNavigation: cacheNavigation}]">注册</a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right" *ngIf="auth.loggedIn">
+  <li class="text-primary personal-info">
+    <a (click)="showPersonalPopup()">
+      {{auth.me.userName || auth.me.email}}
+    </a>
+    <div *ngIf="showPopup" class="popover fade bottom in">
+      <div class="arrow" style="left: 50%;"></div>
+      <div class="input-group order-list-group content-body">
+        <ul class="list-group">
+          <li class="list-group-item" (click)="lgModal.show();showPopup=!showPopup;">
+            用户信息
+          </li>
+          <li class="list-group-item" (click)="mgModal.show();showPopup=!showPopup;">
+            修改密码
+          </li>
+        </ul>
+      </div>
+    </div>
+    <personal-info-modal bsModal #lgModal="bs-modal"
+                         class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                         aria-hidden="true"
+                         [lgModal]="lgModal"></personal-info-modal>
+
+    <modify-password-modal bsModal #mgModal="bs-modal"
+                           class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                           aria-hidden="true"
+                           [lgModal]="mgModal"></modify-password-modal>
+  </li>
+  <li router-active><a href (click)="logout($event)">退出</a></li>
+</ul>
+
+
+
+

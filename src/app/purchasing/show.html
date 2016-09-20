@@ -1,0 +1,65 @@
+<nav-breadcrumb [paths]="navPaths"></nav-breadcrumb>
+<div class="container" *ngIf="order">
+  <h2 class="clearfix">
+    {{order.orderName}}
+    <img src="./_images/edit.svg" class="icon" *ngIf="order.orderStatus != 'DONE'"
+         (click)="gotoDialog(order.id,order.orderName)"/>
+    <small *ngIf="order.createdDate">{{"创建日期 " + (order.createdDate|dateCustomization)}}</small>
+    <a [routerLink]="['/purchasing/dashboard', {id: order.id}]" class="btn btn-primary pull-right">Dashboard</a>
+  </h2>
+
+  <table class="table table-hover table-striped table-bordered table-customized">
+    <thead>
+    <tr>
+      <th>图片</th>
+      <th>中文名</th>
+      <th>英文名</th>
+      <th>评级信息</th>
+      <th>生产方式</th>
+      <th>生产区域</th>
+      <th>可供货的供应商</th>
+      <th *ngIf="order.orderStatus != 'DONE'">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of order.orderItems"
+        (click)="gotoAquaticDetails({id: item.aquaticSourceId, orderName:order.orderName, orderId:order.id})">
+      <td class="image-cell">
+        <div class="image-container">
+          <img [src]="item.imgUrl | urlStrength" [alt]="item.commonName"/>
+        </div>
+      </td>
+      <td>{{item.chineseName}}</td>
+      <td>{{item.englishName}}</td>
+      <td>
+        <img class="level-img" [src]="item.level | aquaticLevelImg | trustAsImgUrl"/>
+      </td>
+      <td>{{item.producePatternAlias}}</td>
+      <td>{{item.isHomemade | regionTransformation}}</td>
+      <td stop-propagation>
+        <show-vendors [item]="item" [orderStatus]="order.orderStatus" [sourceId]="item.aquaticSourceId"></show-vendors>
+      </td>
+      <td *ngIf="order.orderStatus != 'DONE'" (click)="$event.stopPropagation();">
+        <button type="button" class="btn btn-danger" (click)="gotoDeleteDialog(item.id)">
+          <img src="./_images/trash.svg" class="icon" />
+          删除
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <footer>
+    <p class="text-center">
+      <a type="button" class="btn btn-primary" href="{{downloadOrderDetailPrefix}}{{order.id}}">导出采购清单</a>
+    </p>
+  </footer>
+</div>
+
+<modify-purchasing-order-name-dialog [order]="order" (cancelDialogRequest)="cancelPurchasingConfirmDialog()"
+                                     *ngIf="showDialog"></modify-purchasing-order-name-dialog>
+
+<delete-order-item-dialog *ngIf="showDeleteDialog"
+                          [order]="order"
+                          (cancelDialogRequest)="cancelDeleteDialog()"
+                          [itemId]="currentOperateItemId">
+</delete-order-item-dialog>

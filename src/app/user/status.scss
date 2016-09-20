@@ -1,0 +1,45 @@
+@import "../_shared/styles/common";
+
+:host {
+  display: block;
+}
+
+.personal-info {
+  position: relative;
+
+  a {
+    cursor: pointer;
+  }
+
+  a:hover {
+    color: $brand-primary;
+  }
+
+  .popover {
+    position: absolute;
+    display: block;
+    top: 40px;
+    width: 130px;
+    color: gray;
+
+    .input-group {
+      width: 100%;
+      text-align: center;
+
+      ul {
+        margin: 0;
+      }
+
+      .list-group {
+        .list-group-item {
+          cursor: pointer;
+          border: none;
+        }
+        .list-group-item:hover {
+          color: $brand-primary;
+        }
+      }
+    }
+  }
+}
+

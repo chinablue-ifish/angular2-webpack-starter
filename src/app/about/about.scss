@@ -1,0 +1,28 @@
+:host {
+  display: block;
+  color: #7f7f7f;
+  background-color: #f2f6f8;
+}
+
+img {
+  width: 100%;
+  &.about-us-image {
+    width: 2em;
+    position: absolute;
+    top: -45px;
+  }
+}
+
+.i-title {
+  padding: 40px;
+  font-size: 43px;
+}
+.i-content {
+  padding: 52px 10px 130px 50px
+}
+.i-index {
+  padding: 52px 40px 40px 0;
+  img {
+    margin-left: 26px;
+  }
+}

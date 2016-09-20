@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  color: #7f7f7f;;
+  .card {
+    background: white;
+    padding: 24px;
+    border-radius: 4px;
+  }
+}
+
+blockquote {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+a {
+  font-size: 16px;
+}
+
+.report-link {
+  position: relative;
+  top: 1em;
+}

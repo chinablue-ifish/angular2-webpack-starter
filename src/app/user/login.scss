@@ -1,0 +1,29 @@
+:host {
+  display: block;
+}
+
+form {
+  width: 300px;
+  margin: 0 auto;
+  .logo {
+    width: 72px;
+  }
+  .user-email {
+    margin-top: 20px;
+  }
+  .user-password {
+    margin-bottom: 30px;
+  }
+  input {
+    border-radius: 0;
+    color: #7f7f7f;
+  }
+  button {
+    margin-bottom: 12px;
+    outline: none;
+    &.btn-muted {
+      background-color: #e1e1e1;
+      color: #ffffff;;
+    }
+  }
+}

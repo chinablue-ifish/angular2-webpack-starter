@@ -1,0 +1,16 @@
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss';
+
+:host {
+  display: block;
+  background: $gray-lighter;
+  padding: 8px 0;
+  font-family: 'SimHei', serif;
+  color: #313131;
+  font-size: 12px;
+}
+
+.breadcrumb {
+  margin: 0;
+  background: none;
+  padding: 0;
+}

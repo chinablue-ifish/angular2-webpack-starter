@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+main {
+  background: no-repeat center #0E315C url(./_images/login.jpg);
+  min-height: calc(100vh - 68px - 76px);
+  padding: 10vh 0;
+}
+
+.panel {
+  width: 60em;
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  .panel-body {
+    padding: 60px;
+  }
+}

@@ -1,0 +1,22 @@
+<div class="purchasing-confirm-dialog">
+  <div class="shadow">
+
+  </div>
+  <div class="modal-dialog top ">
+    <div class="modal-content">
+      <div class="modal-header">
+
+      </div>
+      <div *ngIf="!showOldList">
+        <div class="modal-body">
+          <p>一旦确认不可更改,是否确认完成?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="cancelDialog()" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" (click)="completePurchasingOrder()" class="btn btn-primary">确认
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

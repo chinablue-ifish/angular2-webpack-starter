@@ -1,0 +1,37 @@
+<form class="form-horizontal" (ngSubmit)="submit()" #nameForm="ngForm">
+  <div class="purchasing-confirm-dialog">
+    <div class="shadow">
+
+    </div>
+    <div class="modal-dialog top name-modifier">
+      <div class="modal-content">
+        <div class="modal-header">
+
+        </div>
+        <div *ngIf="!showOldList">
+          <div class="modal-body">
+            <div class="form-group" *ngIf="error">
+              <div class="alert alert-danger">
+                {{error}}
+              </div>
+            </div>
+            <div class="input-group">
+              <input #purchasingOrderName type="text" class="form-control"
+                     required
+                     name="orderName"
+                     [(ngModel)]="orderName"
+                     aria-describedby="sizing-addon2">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" (click)="cancelDialog()" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="submit"
+                    [disabled]="!nameForm.form.valid"
+                    class="btn btn-primary">确认
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

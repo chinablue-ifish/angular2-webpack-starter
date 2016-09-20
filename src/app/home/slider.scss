@@ -1,0 +1,90 @@
+@import "~app/_shared/styles/common";
+
+:host {
+  display: block;
+  position: relative;
+  p {
+    font-family: SimHei, serif;
+    font-size: 14px;
+  }
+}
+
+.item {
+  img.slider-image {
+    width: 100%;
+  }
+}
+
+.carousel-inner {
+  overflow: visible;
+}
+
+.container {
+  position: relative;
+}
+
+.i-description {
+  text-shadow: none;
+  padding: 24px;
+  text-align: left;
+  background: $brand-primary;
+  opacity: 0.8;
+  width: 437px;
+  position: absolute;
+  right: 100px;
+  bottom: 120px;
+  color: white;
+  height:160px;
+}
+
+.fixed_desc_hegiht {
+  height:76px;
+}
+
+.i-more {
+  color: white;
+  font-weight: normal;
+  &:hover {
+    color: white;
+  }
+}
+
+.carousel-control {
+  width: 100px;
+  .icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.carousel-indicators {
+  display: none;
+  bottom: 100px;
+  > li {
+    width: 24px;
+    height: 4px;
+    border-radius: 2px;
+    background: white;
+    margin: 0 10px 0 0;
+    border: none;
+    &.active {
+      background: $brand-primary;
+    }
+  }
+}
+
+.logo {
+  position: absolute;
+  z-index: 1000;
+  top: -44px;
+  left: 0;
+  right: 0;
+  width: 88px;
+  margin: 0 auto;
+}

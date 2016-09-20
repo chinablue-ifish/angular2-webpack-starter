@@ -1,0 +1,8 @@
+<h3>合作伙伴</h3>
+<ul>
+  <li *ngFor="let partner of partners">
+    <a [href]="partner.url" target="_blank">
+      <img [src]="partner.logo|trustAsImgUrl" [attr.alt]="partner.name" [ngClass]="{'small-logo': partner.name=='ThoughtWorks'}"/>
+    </a>
+  </li>
+</ul>

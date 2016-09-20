@@ -17,11 +17,11 @@
           本产品没有合适的供应商
         </div>
         <p *ngFor="let item of vendorInfo">
-          <lable [attr.for]="item.company">
+          <label [attr.for]="item.company">
             <input id="{{item.company}}" name="vendor"
                    [(ngModel)]="item.checked"
                    type="checkbox" value="{{item.id}}"/>{{item.company}}
-          </lable>
+          </label>
         </p>
       </div>
       <div class="modal-footer">

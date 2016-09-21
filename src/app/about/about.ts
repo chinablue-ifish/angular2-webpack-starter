@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import {NavHeader} from "../nav/header";
-import {NavBreadcrumb} from "../nav/breadcrumb";
-import {NavFooter} from "../nav/footer";
 import {UrlPair} from "../_shared/utils/url-pair";
 
 @Component({
@@ -9,8 +6,7 @@ import {UrlPair} from "../_shared/utils/url-pair";
   styles: [
     require('./about.scss')
   ],
-  template: require('./about.html'),
-  directives: [NavHeader, NavBreadcrumb, NavFooter]
+  template: require('./about.html')
 })
 export class About {
   constructor() {

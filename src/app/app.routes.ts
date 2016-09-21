@@ -1,6 +1,5 @@
 import {Routes, RouterModule} from '@angular/router';
 import {Home} from './home';
-import {About} from './about';
 import {NoContent} from './no-content';
 
 import {DataResolver} from './app.resolver';
@@ -21,6 +20,7 @@ import {HelpCenter} from "./help/center";
 import {HelpContact} from "./help/contact";
 import {EvaluationMethod} from "./evaluation/evaluation-method";
 import {Tao} from "./tao/index";
+import {About} from "./about/about";
 
 
 export const ROUTES:Routes = [
@@ -76,5 +76,5 @@ export const ROUTES:Routes = [
 //     path: 'detail', loadChildren: () => System.import('./+detail')
 //   },
 //   { path: '**',    component: NoContent },
-//  
+//
 // ];

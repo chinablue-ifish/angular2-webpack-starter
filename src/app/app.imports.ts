@@ -40,6 +40,18 @@ import {PurchasingDashboard} from "./purchasing/dashboard";
 import {PurchasingShow} from "./purchasing/show";
 import {ShowVendors} from "./purchasing/show-vendors";
 import {SelectVendorDialog} from "./purchasing/dialog/select-vendor-dialog";
+import {ModifyPurchasingOrderNameDialog} from "./purchasing/dialog/modify-purchasing-order-name-dialog";
+import {User} from "./user/index";
+import {UserLogin} from "./user/login";
+import {UserRegister} from "./user/register";
+import {UserActivate} from "./user/activate";
+import {Help} from "./help/index";
+import {HelpLegacy} from "./help/legacy";
+import {HelpCenter} from "./help/center";
+import {HelpContact} from "./help/contact";
+import {EvaluationMethod} from "./evaluation/evaluation-method";
+import {Tao} from "./tao/index";
+import {AboutWidget} from "./_shared/components/about-widget";
 
 
 export const UserImports = [
@@ -50,6 +62,7 @@ export const UserImports = [
   PurchasingDashboard,
   CompletePurchasingOrderDialog,
   DeletePurchasingOrderItemDialog,
+  ModifyPurchasingOrderNameDialog,
   DeletePurchasingOrderDialog,
   OrderStatusPipe,
   PurchasingList,
@@ -85,5 +98,16 @@ export const UserImports = [
   HomePartner,
   HomeRecommended,
   Source,
-  UserStatus
-]
+  User,
+  UserLogin,
+  UserRegister,
+  UserActivate,
+  UserStatus,
+  Help,
+  HelpLegacy,
+  HelpCenter,
+  HelpContact,
+  EvaluationMethod,
+  Tao,
+  AboutWidget,
+];

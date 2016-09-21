@@ -3,9 +3,9 @@
   <nav-breadcrumb [paths]="navPaths"></nav-breadcrumb>
 </header>
 <main>
-  <about *ngIf="data" [bannerImageUrl]="data.bannerImageUrl" [titleImageUrl]="data.titleImageUrl" [title]="data.title"
+  <about-widget *ngIf="data" [bannerImageUrl]="data.bannerImageUrl" [titleImageUrl]="data.titleImageUrl" [title]="data.title"
          [content]="data.content" [asideLinks]="data.asideLinks" [asideImageUrl]="data.asideImageUrl">
-  </about>
+  </about-widget>
 </main>
 <footer>
   <nav-footer></nav-footer>

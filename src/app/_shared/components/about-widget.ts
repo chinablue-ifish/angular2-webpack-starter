@@ -2,13 +2,13 @@ import { Component, Input } from '@angular/core';
 import {UrlPair} from "../utils/url-pair";
 
 @Component({
-  selector: 'about',
+  selector: 'about-widget',
   styles: [
-    require('./about.scss')
+    require('./about-widget.scss')
   ],
-  template: require('./about.html'),
+  template: require('./about-widget.html'),
 })
-export class About {
+export class AboutWidget {
   constructor() {
 
   }

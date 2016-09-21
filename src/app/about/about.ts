@@ -5,7 +5,7 @@ import {NavFooter} from "../nav/footer";
 import {UrlPair} from "../_shared/utils/url-pair";
 
 @Component({
-  selector: 'about',
+  selector: 'app-about',
   styles: [
     require('./about.scss')
   ],

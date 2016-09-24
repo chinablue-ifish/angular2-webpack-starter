@@ -17,7 +17,7 @@ const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
  */
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const HOST = process.env.HOST || 'localhost';
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT ||  3000;
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
   host: HOST,
@@ -158,16 +158,18 @@ module.exports = function(options) {
         poll: 1000
       },
       proxy: {
-        '/api/*': {
+        '/api': {
+          //target: 'http://www.ifishonline.org',
+          //target:'http://localhost:8080',
+          target:'http://192.168.199.133:8080',
+          pathRewrite: {'^/api': ''}
+          
+        }, '/ifishimage': {
           target: 'http://www.ifishonline.org',
-          rewrite: function (req) {
-            req.url = req.url.replace(/^\/api/, '');
-          }
-        }, '/ifishimage/*': {
-          target: 'http://www.ifishonline.org',
-          rewrite: function (req) {
-            req.url = req.url.replace(/^\/ifishimage/, '');
-          }
+          pathRewrite: {'^/ifishimage': ''}
+          // pathRewrite: function (req) {
+          //   req.url = req.url.replace(/^\/ifishimage/, '');
+          // }
         }
       },
       outputPath: helpers.root('dist')

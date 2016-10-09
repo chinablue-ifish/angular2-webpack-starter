@@ -159,14 +159,13 @@ module.exports = function(options) {
       },
       proxy: {
         '/api': {
-          //target: 'http://www.ifishonline.org',
+          target: 'http://www.ifishonline.org',
           //target:'http://localhost:8080',
-          target:'http://192.168.199.133:8080',
-          pathRewrite: {'^/api': ''}
-          
+          //target:'http://192.168.199.133:8080',
+          //pathRewrite: {'^/api': ''}
         }, '/ifishimage': {
           target: 'http://www.ifishonline.org',
-          pathRewrite: {'^/ifishimage': ''}
+          //pathRewrite: {'^/ifishimage': ''}
           // pathRewrite: function (req) {
           //   req.url = req.url.replace(/^\/ifishimage/, '');
           // }

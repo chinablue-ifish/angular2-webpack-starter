@@ -46,7 +46,12 @@ export class UserLogin implements OnInit {
       this.router.navigate(['/']);
     }).catch((e)=> {
       console.log('error: ', e);
-      this.error = '登录失败！请检查用户名或密码';
+      if(e.json().msg==='user no pass'){
+        this.error = '已经提交注册,请等待管理员审核!';
+      }else{
+        this.error = '登录失败！请检查用户名或密码';
+      }
+      
     });
   }
 

@@ -39,6 +39,27 @@
         <div class="alert alert-info" *ngIf="!sources.items">
           没有符合条件的水产品, 请改变条件, 重新搜索
         </div>
+        <table id="quick_category" *ngIf="true" class="table table-hover table-striped table-bordered table-customized">
+          <thead>
+          <span class="label label-info">快速分类</span>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of quick_category" (click)="gotoSourceListByCategory(item)">
+            <td class="image-cell">
+              <div class="image-container">
+                <img [src]="item.imgUrl | urlStrength" (alt)="item.commonName"/>
+              </div>
+            </td>
+            <td>
+              {{item.name}}
+            </td>
+            <td>
+              红色{{item.red}}种,黄色{{item.yellow}}种,绿色{{item.green}}种
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
         <table *ngIf="sources.items" class="table table-hover table-striped table-bordered table-customized">
           <thead>
           <tr>

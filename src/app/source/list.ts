@@ -17,18 +17,18 @@ import {PurchasingOrder} from "../_shared/models/PurchasingOrder";
   providers: [AquaticRegions],
 })
 export class SourceList {
-  constructor(private sources: AquaticSources, private route: ActivatedRoute,
-              private router: Router, private auth: Auth,
-              private purchasingOrder: PurchasingOrders, private aquaticRegion: AquaticRegions,
-              private applicationRef: ApplicationRef) {
+  constructor(private sources:AquaticSources, private route:ActivatedRoute,
+              private router:Router, private auth:Auth,
+              private purchasingOrder:PurchasingOrders, private aquaticRegion:AquaticRegions,
+              private applicationRef:ApplicationRef) {
   }
 
   showDialog = false;
-  currentSelectedItemId: string;
+  currentSelectedItemId:string;
   items;
   keyword;
   purchasingOrderList;
-  currentPage: number = 0;
+  currentPage:number = 0;
   produce = {
     region: "",
     pattern: ""
@@ -45,14 +45,47 @@ export class SourceList {
     {title: '进口', value: '0',},
     {title: '国产', value: '1',}
   ];
+  quick_category = [
+    {
+      name: '鱼',
+      keyword: '鱼',
+      imgUrl: "/aquatic/original/1705905101_ORGINAL.png",
+      red: 5,
+      yellow: 15,
+      green: 9
+    },
+    {
+      name: '虾',
+      keyword: '虾',
+      imgUrl: "/aquatic/original/2280100112_ORGINAL.png",
+      red: 5,
+      yellow: 15,
+      green: 9
+    },
+    {
+      name: '蟹',
+      keyword: '蟹', 
+      imgUrl: "/aquatic/original/1705905101_ORGINAL.png",
+      red:6,
+      yellow:20,
+      green:3
+    },
+    {
+      name: '贝',
+      keyword: '贝', 
+      imgUrl: "/aquatic/original/3160803002_ORGINAL.png",
+      red:8,
+      yellow:7,
+      green:2}
+  ];
 
-  navPaths: UrlPair[] = [
+  navPaths:UrlPair[] = [
     {
       title: '搜索'
     }
   ];
 
-  paramsSub: Subscription;
+  paramsSub:Subscription;
 
   ngOnInit() {
     this.initPurchasingOrder();
@@ -87,7 +120,7 @@ export class SourceList {
           if (r) {
             this.purchasingOrderList = r.filter(ele=> {
               return ele.orderStatus != "DONE";
-            }).sort((a: PurchasingOrder, b: PurchasingOrder): number=> {
+            }).sort((a:PurchasingOrder, b:PurchasingOrder):number=> {
               return b.createdDate - a.createdDate;
             });
           }
@@ -96,7 +129,7 @@ export class SourceList {
     }, 30);
   }
 
-  search(key: string) {
+  search(key:string) {
     this.keyword = key;
     this.router.navigate(['/source/list', {
       keyword: encodeURI(this.keyword),
@@ -106,11 +139,11 @@ export class SourceList {
 
   }
 
-  numPageChanged(num: Number) {
+  numPageChanged(num:Number) {
     this.sources.query(this.keyword || '', this.produce.pattern, this.produce.region, num);
   }
 
-  gotoPage(page: number) {
+  gotoPage(page:number) {
     this.currentPage = page;
     this.router.navigate(['/source/list', {
       keyword: encodeURI(this.keyword),
@@ -120,7 +153,7 @@ export class SourceList {
     }]);
   }
 
-  gotoPurchasingConfirmDialog(id: string) {
+  gotoPurchasingConfirmDialog(id:string) {
     this.currentSelectedItemId = id;
     this.showDialog = true;
 
@@ -131,7 +164,7 @@ export class SourceList {
     this.currentSelectedItemId = null;
   }
 
-  broadsideProduceRegionFilter(region: string) {
+  broadsideProduceRegionFilter(region:string) {
     this.produce.region = region;
     this.router.navigate(['/source/list', {
       keyword: encodeURI(this.keyword),
@@ -140,13 +173,20 @@ export class SourceList {
     }]);
   }
 
-  broadsideProducePatternFilter(pattern: string) {
+  broadsideProducePatternFilter(pattern:string) {
     this.produce.pattern = pattern;
     this.router.navigate(['/source/list', {
       keyword: encodeURI(this.keyword),
       pattern: this.produce.pattern,
       region: this.produce.region
     }]);
+  }
+
+  gotoSourceListByCategory(item) {
+    this.router.navigate(['/source/list', {
+      keyword: encodeURI(item.keyword)
+    }]);
+    ///  http://localhost:3000/#/source/list;keyword=%25E9%25B1%25BC;pattern=;region=
   }
 
   gotoAquaticDetails(id) {

@@ -1,6 +1,6 @@
 import {Component, ApplicationRef} from "@angular/core";
 import {Subscription} from "rxjs/subscription";
-import {Router, ActivatedRoute} from "@angular/router";
+import {Router, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot} from "@angular/router";
 import {AquaticSources} from "../_shared/api/AquaticSources";
 import {Auth} from "../_shared/api/Auth";
 import {AquaticRegions} from "../_shared/api/AquaticRegions";
@@ -23,6 +23,7 @@ export class SourceList {
               private applicationRef:ApplicationRef) {
   }
 
+  showCategory=false;
   showDialog = false;
   currentSelectedItemId:string;
   items;
@@ -49,6 +50,7 @@ export class SourceList {
     {
       name: '鱼',
       keyword: '鱼',
+      info:'鱼是很有营养的',
       imgUrl: "/aquatic/original/1705905101_ORGINAL.png",
       red: 5,
       yellow: 15,
@@ -57,6 +59,7 @@ export class SourceList {
     {
       name: '虾',
       keyword: '虾',
+      info:'虾很好吃',
       imgUrl: "/aquatic/original/2280100112_ORGINAL.png",
       red: 5,
       yellow: 15,
@@ -64,15 +67,17 @@ export class SourceList {
     },
     {
       name: '蟹',
-      keyword: '蟹', 
-      imgUrl: "/aquatic/original/1705905101_ORGINAL.png",
+      keyword: '蟹',
+      info:'螃蟹比虾还好吃',
+      imgUrl: "/aquatic/original/2311100302_ORGINAL.png",
       red:6,
       yellow:20,
       green:3
     },
     {
       name: '贝',
-      keyword: '贝', 
+      keyword: '贝',
+      info:'贝一般般',
       imgUrl: "/aquatic/original/3160803002_ORGINAL.png",
       red:8,
       yellow:7,
@@ -86,17 +91,26 @@ export class SourceList {
   ];
 
   paramsSub:Subscription;
+  pathSub:Subscription;
 
   ngOnInit() {
     this.initPurchasingOrder();
+    //RxJS监听路由url的参数params变化,设置model并查询数据
     this.paramsSub = this.route.params.subscribe(params=> {
       this.reload(params);
     });
+    //RxJS监听获取路由url,当路由为category的时候显示快速分类而非列表。
+    this.pathSub = this.route.url.subscribe(urlseg=> {
+      this.showCategory=('category'===urlseg[0].path);
+    })
   }
 
   ngOnDestroy() {
     if (this.paramsSub) {
       this.paramsSub.unsubscribe();
+    }
+    if (this.pathSub) {
+      this.pathSub.unsubscribe();
     }
   }
 

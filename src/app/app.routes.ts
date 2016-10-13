@@ -22,7 +22,6 @@ import {EvaluationMethod} from "./evaluation/evaluation-method";
 import {Tao} from "./tao/index";
 import {About} from "./about/about";
 
-
 export const ROUTES:Routes = [
   {path: '', pathMatch: 'full', component: Home, data: {title: '首页'}},
   {
@@ -30,6 +29,7 @@ export const ROUTES:Routes = [
     component: Source,
     children: [
       {path: 'list', component: SourceList, data: {title: '水产品搜索'}},
+      {path: 'category', component: SourceList, data: {title: '水产品分类'}},
       {path: 'show', component: SourceShow, data: {title: '水产品详情'}}
     ]
   },
@@ -64,7 +64,7 @@ export const ROUTES:Routes = [
   {path: 'evaluation', component: EvaluationMethod, data: {title: '评级指标'}},
   {path: 'about', component: About, data: {title: '关于我们'}},
   {path: 'tao', component: Tao, data: {title: '我们的理念'}},
-  { path: '**', component: NoContent }
+  {path: '**', component: NoContent}
 ];
 
 

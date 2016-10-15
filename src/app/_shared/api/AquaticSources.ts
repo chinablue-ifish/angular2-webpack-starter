@@ -51,4 +51,13 @@ export class AquaticSources {
         return data;
       });
   }
+
+  getSummary(){
+    return this.http.get(`/api/aquatic/summary`)
+      .toPromise().then((res:Response)=> {
+        var data = res.json();
+        return data;
+      });
+  }
+
 }

@@ -44,20 +44,23 @@
           <span class="label label-info">水产品分类统计</span>
           </thead>
           <tbody>
-          <tr *ngFor="let item of quick_category" (click)="gotoSourceListByCategory(item)">
+          <tr *ngFor="let item of sourceCategorySummary" (click)="gotoSourceListByCategory(item)">
             <td class="image-cell">
               <div class="image-container">
                 <img [src]="item.imgUrl | urlStrength" (alt)="item.commonName"/>
               </div>
             </td>
             <td>
-              {{item.name}}
+              {{item.title}}
             </td>
             <td>
-              {{item.info}}
+              {{item.mark}}
             </td>
             <td>
-              红色{{item.red}}种,黄色{{item.yellow}}种,绿色{{item.green}}种
+              红色{{item.aquaticCategoryStatisticsOK.A}}种,
+              黄色{{item.aquaticCategoryStatisticsOK.B}}种,
+              绿色{{item.aquaticCategoryStatisticsOK.C}}种,
+              灰色{{item.aquaticCategoryStatisticsOK.D}}种
             </td>
           </tr>
           </tbody>

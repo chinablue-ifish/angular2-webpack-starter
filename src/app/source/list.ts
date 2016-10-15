@@ -24,6 +24,7 @@ export class SourceList {
   }
 
   showCategory=false;
+  sourceCategorySummary;
   showDialog = false;
   currentSelectedItemId:string;
   items;
@@ -102,6 +103,7 @@ export class SourceList {
     //RxJS监听获取路由url,当路由为category的时候显示快速分类而非列表。
     this.pathSub = this.route.url.subscribe(urlseg=> {
       this.showCategory=('category'===urlseg[0].path);
+      this.loadSourceCategorySummary();//刷新
     })
   }
 
@@ -127,6 +129,46 @@ export class SourceList {
     this.sources.query(this.keyword, this.produce.pattern, this.produce.region, this.currentPage);
   }
 
+  loadSourceCategorySummary(){
+    this.sources.getSummary().then((data)=> {
+      console.log('loadSourceCategorySummary=> ');
+      console.dir(data);
+      data.forEach(item=>{
+        console.dir(item);
+        if(item.title.match('鱼')){
+          item.imgUrl='/aquatic/original/1705905101_ORGINAL.png';
+          item.keyword='鱼';
+        }else if(item.title.match('虾')){
+          item.imgUrl='/aquatic/original/2280100112_ORGINAL.png';
+          item.keyword='虾';
+        }else if(item.title.match('蟹')){
+          item.imgUrl='/aquatic/original/2311100302_ORGINAL.png';
+          item.keyword='蟹';
+        }else if(item.title.match('藻')){
+          item.imgUrl='/aquatic/original/2280100112_ORGINAL.png';
+          item.keyword='藻';
+        }else if(item.title.match('贝')){
+          item.imgUrl='/aquatic/original/3160803002_ORGINAL.png';
+          item.keyword='贝';
+        }else if(item.title.match('其他')){
+          item.imgUrl='/aquatic/original/2311100302_ORGINAL.png';
+          item.keyword='其他';
+        }
+        let count={
+          A:0,
+          B:0,
+          C:0,
+          D:0
+        };
+        item.aquaticCategoryStatistics.forEach(d=>{
+          console.dir(d);
+          count[d[1]]=d[0]
+        });
+        item.aquaticCategoryStatisticsOK=count;
+      });
+      this.sourceCategorySummary=data;
+    });
+  }
   initPurchasingOrder() {
     setTimeout(()=> {
       if (this.auth.me && this.auth.me.email) {

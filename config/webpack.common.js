@@ -23,7 +23,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
  */
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = {
-  title: 'iFish',
+  title: 'iFISH 可持续水产品',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };

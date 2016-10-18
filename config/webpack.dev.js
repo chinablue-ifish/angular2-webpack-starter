@@ -159,7 +159,7 @@ module.exports = function(options) {
       },
       proxy: {
         '/api': {
-          target: 'http://www.ifishonline.org',
+          target: 'http://www.ifishchina.org',
           //target:'http://localhost:8080',
           //target:'http://192.168.100.102:8080',
           //pathRewrite: {'^/api': ''}

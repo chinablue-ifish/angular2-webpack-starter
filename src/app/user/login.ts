@@ -47,11 +47,11 @@ export class UserLogin implements OnInit {
     }).catch((e)=> {
       console.log('error: ', e);
       if(e.json().msg==='user no pass'){
-        this.error = '已经提交注册,请等待管理员审核!';
+        this.error = '您的注册申请已提交，请注意查收审核邮件。';
       }else{
         this.error = '登录失败！请检查用户名或密码';
       }
-      
+
     });
   }
 

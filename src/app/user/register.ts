@@ -18,7 +18,6 @@ const emailValidator = new RegExp(emailRegex, 'i');
   styles: [
     require('./register.scss')
   ],
-  //TODO deprecated;  directives: [RouterLink, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES]
 })
 export class UserRegister implements OnInit {
 
@@ -83,7 +82,7 @@ export class UserRegister implements OnInit {
     this.form.confirmPassword = null;
     console.log('path , ', this.navigation)
     this.auth.register(this.form).then((r)=> {
-      if (r.status) {
+      if (r.error.match(/等待审核/) || r.status) {
         if (this.navigation && !this.pathValidate(this.navigation)) {
           return document.location.href = this.navigation;
         }

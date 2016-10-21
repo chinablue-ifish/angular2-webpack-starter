@@ -1,5 +1,5 @@
 <div class="card">
-  <blockquote>
+  <blockquote *ngIf="auth.loggedIn">
     <p>{{source.evaluationDescription}}</p>
     <p class="report-link" *ngIf="source.evaluationReportPdfUrl">
       <a [href]="'/ifishimage/' + source.evaluationReportPdfUrl" download="评估报告.pdf" target="_blank">

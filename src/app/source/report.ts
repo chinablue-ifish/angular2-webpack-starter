@@ -1,4 +1,5 @@
 import {Component, OnInit, Input} from "@angular/core";
+import {Auth} from "../_shared/api/Auth";
 
 @Component({
   selector: 'source-report',
@@ -8,7 +9,7 @@ import {Component, OnInit, Input} from "@angular/core";
   ]
 })
 export class SourceReport implements OnInit {
-  constructor() {
+  constructor(private auth:Auth) {
   }
 
   ngOnInit() {

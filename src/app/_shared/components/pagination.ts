@@ -37,16 +37,22 @@ export class PaginationDemoComponent {
   }
 
   previousPage() {
-    if (this.currentPage > 1) {
+    if (this.currentPage > 0) {
       this.currentPage -= 1;
       this.goto(this.currentPage);
-    } else this.goto(1);
+    } else{
+      console.log('already page=0! ignore...');
+      //this.goto(0);
+    }
   }
 
   nextPage() {
     if (this.currentPage + 1 < this.pages.length) {
       this.currentPage += 1;
       this.goto(this.currentPage);
-    } else this.goto(this.pages.length);
+    } else {
+      console.log('already page=max! ignore...');
+      //this.goto(this.pages.length);
+    }
   }
 }

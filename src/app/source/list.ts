@@ -29,6 +29,7 @@ export class SourceList {
   currentSelectedItemId:string;
   items;
   keyword;
+  categorys;
   purchasingOrderList;
   currentPage:number = 0;
   produce = {
@@ -46,43 +47,6 @@ export class SourceList {
     {title: '不限', value: '',},
     {title: '进口', value: '0',},
     {title: '国产', value: '1',}
-  ];
-  quick_category = [
-    {
-      name: '鱼',
-      keyword: '鱼',
-      info:'鱼是很有营养的',
-      imgUrl: "/aquatic/original/1705905101_ORGINAL.png",
-      red: 5,
-      yellow: 15,
-      green: 9
-    },
-    {
-      name: '虾',
-      keyword: '虾',
-      info:'虾很好吃',
-      imgUrl: "/aquatic/original/2280100112_ORGINAL.png",
-      red: 5,
-      yellow: 15,
-      green: 9
-    },
-    {
-      name: '蟹',
-      keyword: '蟹',
-      info:'螃蟹比虾还好吃',
-      imgUrl: "/aquatic/original/2311100302_ORGINAL.png",
-      red:6,
-      yellow:20,
-      green:3
-    },
-    {
-      name: '贝',
-      keyword: '贝',
-      info:'贝一般般',
-      imgUrl: "/aquatic/original/3160803002_ORGINAL.png",
-      red:8,
-      yellow:7,
-      green:2}
   ];
 
   navPaths:UrlPair[] = [
@@ -125,8 +89,9 @@ export class SourceList {
     if (this.keyword === 'true') {
       this.keyword = '';
     }
-    this.currentPage = +(params['page'] || 0);
-    this.sources.query(this.keyword, this.produce.pattern, this.produce.region, this.currentPage);
+    this.currentPage = +(params['page'] || 0);//页数默认从0开始
+    this.categorys=params['categorys']?decodeURI(params['categorys']) : "";
+    this.sources.query(this.categorys, this.keyword, this.produce.pattern, this.produce.region, this.currentPage);
   }
 
   loadSourceCategorySummary(){
@@ -196,12 +161,13 @@ export class SourceList {
   }
 
   numPageChanged(num:Number) {
-    this.sources.query(this.keyword || '', this.produce.pattern, this.produce.region, num);
+    this.sources.query(this.categorys||'', this.keyword || '', this.produce.pattern, this.produce.region, num);
   }
 
   gotoPage(page:number) {
     this.currentPage = page;
     this.router.navigate(['/source/list', {
+      categorys:encodeURI(this.categorys),
       keyword: encodeURI(this.keyword),
       pattern: this.produce.pattern,
       region: this.produce.region,
@@ -240,7 +206,7 @@ export class SourceList {
 
   gotoSourceListByCategory(item) {
     this.router.navigate(['/source/list', {
-      keyword: encodeURI(item.keyword)
+      categorys: encodeURI(item.categorys)
     }]);
     ///  http://localhost:3000/#/source/list;keyword=%25E9%25B1%25BC;pattern=;region=
   }

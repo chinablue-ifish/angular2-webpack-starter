@@ -14,15 +14,20 @@ export class AquaticSources {
   recommendedItems:AquaticSource[] = [];
   totalItems = 0;
 
-  query(keyword:string, pattern:string, region:string, page:Number):Promise<AquaticSource> {
-    let targetUrl = `/api/aquatic/search?name=` + encodeURI(keyword || "");
-    if (pattern && producePattern.indexOf(pattern) > -1) {
-      targetUrl += '&producePattern=' + encodeURI(pattern || "");
-    }
-    if (region) {
-      let isHomemade = parseInt(region);
-      if (Number.isInteger(isHomemade)) {
-        targetUrl += '&isHomemade=' + encodeURI(isHomemade.toString() || "");
+  query(categorys:string, keyword:string, pattern:string, region:string, page:Number):Promise<AquaticSource> {
+    let targetUrl = '';
+    if(categorys){
+      targetUrl = `/api/admin/aquaticSource/listByCategorys?categorys=` + encodeURI(categorys || "")
+    }else{
+      targetUrl = `/api/aquatic/search?name=` + encodeURI(keyword || "");
+      if (pattern && producePattern.indexOf(pattern) > -1) {
+        targetUrl += '&producePattern=' + encodeURI(pattern || "");
+      }
+      if (region) {
+        let isHomemade = parseInt(region);
+        if (Number.isInteger(isHomemade)) {
+          targetUrl += '&isHomemade=' + encodeURI(isHomemade.toString() || "");
+        }
       }
     }
     if (page) targetUrl += '&page=' + `${page}`;

@@ -110,13 +110,13 @@ export class SourceList {
           item.imgUrl='/aquatic/original/2311100302_ORGINAL.png';
           item.keyword='蟹';
         }else if(item.title.match('藻')){
-          item.imgUrl='/aquatic/original/2280100112_ORGINAL.png';
+          item.imgUrl='/aquatic/original/7710200202_ORGINAL.png';
           item.keyword='藻';
         }else if(item.title.match('贝')){
           item.imgUrl='/aquatic/original/3160803002_ORGINAL.png';
           item.keyword='贝';
         }else if(item.title.match('其他')){
-          item.imgUrl='/aquatic/original/2311100302_ORGINAL.png';
+          item.imgUrl='/aquatic/original/6941400501_ORGINAL.png';
           item.keyword='其他';
         }
         let count={

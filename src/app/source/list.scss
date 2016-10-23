@@ -26,6 +26,27 @@ main {
   }
 }
 
+.level1 {
+  color:white;
+  background-color: rgb(49,124,192);
+  padding:10px;
+}
+.level2 {
+  color:white;
+  background-color: rgb(72,134,24);
+  padding:10px;
+}
+.level3 {
+  color:white;
+  background-color: rgb(210,150,0);
+  padding:10px;
+}
+.level4 {
+  color:white;
+  background-color: darkgrey;
+  padding:10px;
+}
+
 .purchasing-confirm-dialog {
   position: fixed;
   min-width: 100%;

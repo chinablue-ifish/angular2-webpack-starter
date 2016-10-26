@@ -39,6 +39,40 @@
         <div class="alert alert-info" *ngIf="!sources.items">
           没有符合条件的水产品, 请改变条件, 重新搜索
         </div>
+        <div id="category_container" *ngIf="showCategory" class="row">
+            <div *ngFor="let item of sourceCategorySummary" class="col-xs-4 category-item" (click)="gotoSourceListByCategory(item)">
+              <div style="">
+                <div style="text-align: center;font-size: 2em;">{{item.title}}</div>
+                <div class="image-container">
+                  <img [src]="item.imgUrl | urlStrength" (alt)="item.commonName"/>
+                </div>
+                <div class="row level-container" style="text-align: center">
+                  <div class="col-xs-4">
+                    <div class="bg-circle bg-best">
+                      <p class="count-num">{{item.aquaticCategoryStatisticsOK.A}}</p>
+                      <p>Best</p>
+                      <p class="count-cn">优异</p>
+                    </div>
+                  </div>
+                  <div class="col-xs-4">
+                    <div class="bg-circle bg-good">
+                      <p class="count-num">{{item.aquaticCategoryStatisticsOK.B}}</p>
+                      <p>Good</p>
+                      <p class="count-cn">良好</p>
+                    </div>
+                  </div>
+                  <div class="col-xs-4">
+                    <div class="bg-circle bg-acceptable">
+                      <p class="count-num">{{item.aquaticCategoryStatisticsOK.C}}</p>
+                      <p>Acceptable</p>
+                      <p class="count-cn">尚可</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!--
         <table id="quick_category" *ngIf="showCategory" class="table table-hover table-striped table-bordered table-customized">
           <thead>
           <span class="label label-info">水产品分类统计</span>
@@ -60,11 +94,11 @@
               <span class="level1">优异{{item.aquaticCategoryStatisticsOK.A}}种</span>
               <span class="level2">良好{{item.aquaticCategoryStatisticsOK.B}}种</span>
               <span class="level3">尚可{{item.aquaticCategoryStatisticsOK.C}}种</span>
-              <span class="level4">未知{{item.aquaticCategoryStatisticsOK.D}}种</span>
             </td>
           </tr>
           </tbody>
         </table>
+        -->
 
         <table *ngIf="!showCategory && sources.items" class="table table-hover table-striped table-bordered table-customized">
           <thead>

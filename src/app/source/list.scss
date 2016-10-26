@@ -26,6 +26,45 @@ main {
   }
 }
 
+.category-item{
+  :hover{
+    cursor: hand;
+  }
+}
+.image-container{
+  text-align: center;
+  img{
+    width:15em;
+  }
+}
+.bg-circle{
+  width: 7em;
+  heigth: 7em;
+  background: red;
+  border-radius: 50em;
+  .count-num{
+    position:relative;
+    top:0.5em;
+    font-size:1.5em;
+  }
+  .count-cn{
+    position:relative;
+    top:-0.5em;
+  }
+}
+.bg-best{
+  background-color: #2462ae;
+  color:#ffffff;
+}
+.bg-good{
+  background-color: #31650b;
+  color:#ffffff;
+}
+.bg-acceptable{
+  background-color: #c08200;
+  color:#ffffff;
+}
+
 .level1 {
   color:white;
   background-color: rgb(49,124,192);

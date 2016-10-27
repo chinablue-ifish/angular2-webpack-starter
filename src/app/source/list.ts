@@ -68,7 +68,7 @@ export class SourceList {
     this.pathSub = this.route.url.subscribe(urlseg=> {
       this.showCategory=('category'===urlseg[0].path);
       this.loadSourceCategorySummary();//刷新
-    })
+    });
   }
 
   ngOnDestroy() {

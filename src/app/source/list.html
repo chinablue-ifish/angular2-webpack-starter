@@ -46,25 +46,22 @@
                 <div class="image-container">
                   <img [src]="item.imgUrl | urlStrength" (alt)="item.commonName"/>
                 </div>
-                <div class="row level-container" style="text-align: center">
+                <div class="row level-container" style="text-align: center;">
                   <div class="col-xs-4">
                     <div class="bg-circle bg-best">
                       <p class="count-num">{{item.aquaticCategoryStatisticsOK.A}}</p>
-                      <p>Best</p>
                       <p class="count-cn">优异</p>
                     </div>
                   </div>
                   <div class="col-xs-4">
                     <div class="bg-circle bg-good">
                       <p class="count-num">{{item.aquaticCategoryStatisticsOK.B}}</p>
-                      <p>Good</p>
                       <p class="count-cn">良好</p>
                     </div>
                   </div>
                   <div class="col-xs-4">
                     <div class="bg-circle bg-acceptable">
                       <p class="count-num">{{item.aquaticCategoryStatisticsOK.C}}</p>
-                      <p>Acceptable</p>
                       <p class="count-cn">尚可</p>
                     </div>
                   </div>

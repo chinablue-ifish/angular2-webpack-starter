@@ -30,22 +30,23 @@ main {
   :hover{
     cursor: hand;
   }
+  margin-bottom:4em;
 }
 .image-container{
   text-align: center;
   img{
-    width:15em;
+    width:10em;
   }
 }
 .bg-circle{
-  width: 7em;
-  heigth: 7em;
+  width: 4em;
+  heigth: 4em;
   background: red;
   border-radius: 50%;
   .count-num{
     position:relative;
     top:0.5em;
-    font-size:1.5em;
+    font-size:1.0em;
   }
   .count-cn{
     position:relative;

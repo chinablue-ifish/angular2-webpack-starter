@@ -52,6 +52,7 @@ import {HelpContact} from "./help/contact";
 import {EvaluationMethod} from "./evaluation/evaluation-method";
 import {Tao} from "./tao/index";
 import {AboutWidget} from "./_shared/components/about-widget";
+import {StopPropagationDirective} from "./_shared/directives/stop-propagation";
 
 
 export const UserImports = [
@@ -71,6 +72,7 @@ export const UserImports = [
   SourceMore,
   SourceReport,
   CircularProgress,
+  StopPropagationDirective,
   AquaticLevelPipe,
   SourceBase,
   Source,

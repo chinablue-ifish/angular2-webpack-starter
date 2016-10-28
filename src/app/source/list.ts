@@ -161,10 +161,13 @@ export class SourceList {
   }
 
   numPageChanged(num:Number) {
-    this.sources.query(this.categorys||'', this.keyword || '', this.produce.pattern, this.produce.region, num);
+    console.log('numPageChanged'+num);
+    //和gotoPage的RxJS监听重复了，所以去掉。
+    //this.sources.query(this.categorys||'', this.keyword || '', this.produce.pattern, this.produce.region, num);
   }
 
   gotoPage(page:number) {
+    console.log('go to page'+page);
     this.currentPage = page;
     this.router.navigate(['/source/list', {
       categorys:encodeURI(this.categorys),

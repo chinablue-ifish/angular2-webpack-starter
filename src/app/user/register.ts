@@ -21,6 +21,8 @@ const emailValidator = new RegExp(emailRegex, 'i');
 })
 export class UserRegister implements OnInit {
 
+  countdown = 5;
+  registerSuccess = false;
   form:RegisterForm = {};
   navigation;
   error;
@@ -48,6 +50,7 @@ export class UserRegister implements OnInit {
   }
 
   ngOnInit() {
+    this.registerSuccess = false;
     this.navigation = this.route.snapshot.params['cacheNavigation'];
     if (this.navigation = 'true') this.navigation = '';
   }
@@ -83,10 +86,20 @@ export class UserRegister implements OnInit {
     console.log('path , ', this.navigation)
     this.auth.register(this.form).then((r)=> {
       if (r.error.match(/等待审核/) || r.status) {
-        if (this.navigation && !this.pathValidate(this.navigation)) {
-          return document.location.href = this.navigation;
-        }
-        this.router.navigate(['/']);
+        this.registerSuccess = true;
+        this.error = '您的注册申请已提交，请注意查收审核邮件。';
+        this.countdown = 5;
+        setInterval(()=>{
+          this.countdown=this.countdown-1;
+          if(!this.countdown){
+            this.router.navigate(['/']);
+          }
+        },1000);
+        //
+        // if (this.navigation && !this.pathValidate(this.navigation)) {
+        //   return document.location.href = this.navigation;
+        // }
+        // this.router.navigate(['/']);
       } else {
         this.error = JSON.parse(r.error).msg;
       }

@@ -1,4 +1,4 @@
-<form class="form-horizontal" (ngSubmit)="submit()" novalidate [formGroup]="myForm">
+<form *ngIf="!registerSuccess" class="form-horizontal" (ngSubmit)="submit()" novalidate [formGroup]="myForm">
   <div class="form-group">
     <h3>
       注册成为<img class="logo" src="./_images/iFISH-colored.png"/>用户
@@ -47,6 +47,14 @@
     <button type="reset" class="btn btn-muted btn-block">取消</button>
   </div>
   <div class="form-group">
+    <a [routerLink]="['/']" class="pull-left">返回首页</a>
     <a [routerLink]="['/user/login']" class="pull-right">已有账号</a>
   </div>
+
 </form>
+<div *ngIf="registerSuccess">
+  <div class="alert alert-danger" *ngIf="error">
+    {{error}}{{countdown}}秒后返回首页...
+  </div>
+  <a [routerLink]="['/']" class="pull-right">立即返回首页</a>
+</div>

@@ -30,6 +30,7 @@
     <p class="clearfix">
       <a href="javascript:;" (click)="gotoDialog()" class="pull-left">忘记密码？</a>
       <a [routerLink]="['/user/register']" class="pull-right">注册</a>
+      <a [routerLink]="['/']" class="pull-right homelink">返回首页</a>
     </p>
 
     <div class="alert alert-info" *ngIf="_resetPasswordVisible">

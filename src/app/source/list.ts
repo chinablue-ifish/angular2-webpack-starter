@@ -217,6 +217,7 @@ export class SourceList {
   gotoAquaticDetails(id) {
     this.router.navigate(['/source/show', {
       id: id,
+      categorys: encodeURI(this.categorys),
       keyword: encodeURI(this.keyword),
       pattern: this.produce.pattern,
       region: this.produce.region,

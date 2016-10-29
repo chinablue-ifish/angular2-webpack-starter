@@ -13,6 +13,7 @@ export class AquaticSources {
   items:AquaticSource[] = [];
   recommendedItems:AquaticSource[] = [];
   totalItems = 0;
+  isLoading = false;
 
   query(categorys:string, keyword:string, pattern:string, region:string, page:Number):Promise<AquaticSource> {
     let targetUrl = '';
@@ -31,8 +32,10 @@ export class AquaticSources {
       }
     }
     if (page) targetUrl += '&page=' + `${page}`;
+    this.isLoading=true;
     return this.http.get(targetUrl)
       .toPromise().then((res:Response)=> {
+        this.isLoading = false;
         var data = res.json();
         this.items = (data.origin && data.origin[0]) ? data.origin : false;
         this.recommendedItems = (data.recommended && data.recommended[0]) ? data.recommended.slice(0, 3) : false;

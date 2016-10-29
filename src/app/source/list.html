@@ -97,7 +97,7 @@
         </table>
         -->
 
-        <table *ngIf="!showCategory && sources.items" class="table table-hover table-striped table-bordered table-customized">
+        <table *ngIf="!sources.isLoading && !showCategory && sources.items" class="table table-hover table-striped table-bordered table-customized">
           <thead>
           <tr>
             <th class="col-md-2">图片</th>

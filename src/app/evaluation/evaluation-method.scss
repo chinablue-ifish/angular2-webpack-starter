@@ -1,11 +1,16 @@
 :host {
   display: block;
+  color: #7f7f7f;
+  background-color: #f2f6f8;
 }
 
 img {
   width: 100%;
 }
 
+h1{
+  font-weight: 600;
+}
 svg.evaluation-method-image{
   position: relative;
   top: -90px;

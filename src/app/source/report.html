@@ -8,7 +8,7 @@
       </a>
     </p>
     <p class="report-link" *ngIf="!auth.loggedIn && source.evaluationReportPdfUrl">
-      <a [routerLink]="['/login']">
+      <a [routerLink]="['/user/login']">
         登录后可查看快速评价报告(PDF)
       </a>
     </p>

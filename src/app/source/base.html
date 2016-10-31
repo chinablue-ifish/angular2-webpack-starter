@@ -14,7 +14,7 @@
       </dl>
       <dl class="dl-horizontal">
         <dt>拉丁名</dt>
-        <dd>{{source.scientificName}}</dd>
+        <dd class="name_latin">{{source.scientificName}}</dd>
       </dl>
       <dl class="dl-horizontal">
         <dt>俗名</dt>
@@ -30,6 +30,13 @@
         <dt>生产区域</dt>
         <dd>{{source.aquaticRegionName}}</dd>
       </dl>
+
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-8">
       <dl class="dl-horizontal">
         <dt>可借鉴认证</dt>
         <dd *ngIf="source.aquaticAuthenticationImageSet">

@@ -12,8 +12,8 @@ img {
 
 .authentication-img {
   display: inline-block;
-  max-width: 40px;
-  max-height: 40px;
+  //max-width: 100px;
+  max-height: 100px;
 }
 
 .card {
@@ -30,4 +30,8 @@ img {
   dd {
     margin-left: 9em;
   }
+}
+
+.name_latin{
+  font-style: italic;
 }

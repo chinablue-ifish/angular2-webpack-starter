@@ -4,7 +4,12 @@
     <p class="report-link" *ngIf="auth.loggedIn && source.evaluationReportPdfUrl">
       <a [href]="'/ifishimage/' + source.evaluationReportPdfUrl" download="评估报告.pdf" target="_blank">
         <img src="./_images/icon-download.svg"/>
-        评估报告(PDF)
+        快速评价报告(PDF)
+      </a>
+    </p>
+    <p class="report-link" *ngIf="!auth.loggedIn && source.evaluationReportPdfUrl">
+      <a [routerLink]="['/login']">
+        登录后可查看快速评价报告(PDF)
       </a>
     </p>
   </blockquote>

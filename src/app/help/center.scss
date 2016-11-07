@@ -6,6 +6,7 @@
 h1 {
   font-size: 1.5em;
   font-weight: 600;
+  margin:0 0 1em;
 }
 h2{
   font-weight:600;
@@ -23,4 +24,16 @@ h2{
 .level-ok{
   color:#B57D00;
   font-weight:900;
+}
+
+ul.no-index{
+  padding-left: 0;
+  list-style: none;
+}
+.list-strong>li{
+  font-weight:600;
+}
+p,li{
+  margin:1em 0 1em;
+  line-height:1.5em;
 }

@@ -20,7 +20,10 @@ import { About } from './about';
 import { NoContent } from './no-content';
 import { XLarge } from './home/x-large';
 
-import { Ng2BootstrapModule } from 'ng2-bootstrap';
+import { ModalModule, TypeaheadModule } from 'ng2-bootstrap';
+import { ComponentLoaderFactory } from 'ng2-bootstrap/component-loader';
+
+
 import {UserImports} from "./app.imports";
 import {UserProviders} from "./app.providers"
 
@@ -28,7 +31,8 @@ import {UserProviders} from "./app.providers"
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   ...UserProviders,
-  AppState
+  AppState,
+  ComponentLoaderFactory,
 ];
 
 type StoreType = {
@@ -55,7 +59,9 @@ type StoreType = {
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    Ng2BootstrapModule,
+    //Ng2BootstrapModule,
+    ModalModule.forRoot(),
+    TypeaheadModule,
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
